@@ -1,0 +1,6 @@
+services:
+  apha-insights-ingestion:
+    command: npm run dev:debug
+    ports:
+      - '3002:3002'
+      - '9231:9229'

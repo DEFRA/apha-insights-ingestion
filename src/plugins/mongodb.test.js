@@ -6,7 +6,6 @@ describe('#mongoDb', () => {
 
   describe('Set up', () => {
     beforeAll(async () => {
-      // Dynamic import needed due to config being updated by vitest-mongodb
       const { createServer } = await import('#/server.js')
 
       server = await createServer()
@@ -30,7 +29,6 @@ describe('#mongoDb', () => {
 
   describe('Shut down', () => {
     beforeAll(async () => {
-      // Dynamic import needed due to config being updated by vitest-mongodb
       const { createServer } = await import('#/server.js')
 
       server = await createServer()
@@ -42,6 +40,37 @@ describe('#mongoDb', () => {
       await server.stop({ timeout: 1000 })
 
       expect(closeSpy).toHaveBeenCalledWith(true)
+    })
+  })
+
+  describe('Shut down failure', () => {
+    beforeAll(async () => {
+      const { createServer } = await import('#/server.js')
+
+      server = await createServer()
+      await server.initialize()
+    })
+
+    test('Should log an error when closing the Mongo client fails', async () => {
+      const closeError = new Error('close failed')
+      const close = server.mongoClient.close.bind(server.mongoClient)
+      vi.spyOn(server.mongoClient, 'close').mockImplementationOnce(
+        async (force) => {
+          await close(force)
+          throw closeError
+        }
+      )
+      const errorSpy = vi.spyOn(server.logger, 'error')
+
+      await server.stop({ timeout: 1000 })
+
+      // Hapi emits 'stop' without awaiting listeners
+      await vi.waitFor(() =>
+        expect(errorSpy).toHaveBeenCalledWith(
+          closeError,
+          'failed to close mongo client'
+        )
+      )
     })
   })
 })

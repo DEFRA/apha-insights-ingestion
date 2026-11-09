@@ -1,0 +1,32 @@
+services:
+  apha-insights-ingestion:
+    build:
+      target: development
+    image: apha-insights-ingestion-development
+    container_name: apha-insights-ingestion-test
+    command: npm test
+    # Use mongo-test, not the dev `mongodb` service, so the shared apha-risk
+    # network never has two containers answering to the same hostname
+    links: !override
+      - 'floci:floci'
+    depends_on: !override
+      floci:
+        condition: service_healthy
+      mongo-test:
+        condition: service_healthy
+    environment:
+      PORT: 3002
+      NODE_ENV: test
+      MONGO_URI: mongodb://mongo-test:27017/
+    volumes:
+      - ./test:/home/node/test
+      - ./vitest.config.js:/home/node/vitest.config.js
+      - ./coverage:/home/node/coverage
+      - ./src:/home/node/src
+      - ./package.json:/home/node/package.json
+
+  mongo-test:
+    extends:
+      file: compose.yaml
+      service: mongodb
+    container_name: apha-insights-ingestion-mongo-test

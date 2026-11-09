@@ -52,11 +52,43 @@ npm install
 
 ### Git hooks
 
-Install git hooks (optional)
+Git hooks are managed by [pre-commit](https://pre-commit.com/) (see
+[.pre-commit-config.yaml](./.pre-commit-config.yaml)). On commit they run
+[detect-secrets](https://github.com/Yelp/detect-secrets), ESLint (with `--fix`)
+and Prettier.
+
+Install pre-commit, then install the hooks once after cloning:
 
 ```bash
-npm run git:hooks
+pip install pre-commit   # or: pipx install pre-commit
+pre-commit install
 ```
+
+To run the hooks against every file without committing:
+
+```bash
+pre-commit run --all-files
+```
+
+To run the full check suite (security audit, format check, lint and tests)
+manually or in CI:
+
+```bash
+npm run check:all
+```
+
+#### Secrets baseline
+
+`.secrets.baseline` records known, accepted findings so `detect-secrets` only
+flags new ones. It was generated once with:
+
+```bash
+pip install detect-secrets
+detect-secrets scan > .secrets.baseline
+```
+
+If the hook flags a false positive, update the baseline with
+`detect-secrets scan --baseline .secrets.baseline` and commit the result.
 
 ### Development
 
@@ -68,10 +100,11 @@ npm run dev
 
 ### Testing
 
-To test the application run:
+Tests run against a real MongoDB container (see
+`adr/containerized-mongo-for-all-tests.adr.md`). To test the application run:
 
 ```bash
-npm run test
+npm run docker:test
 ```
 
 ### Production
@@ -114,11 +147,9 @@ git config --global core.autocrlf false
 
 ## API endpoints
 
-| Endpoint             | Description                    |
-| :------------------- | :----------------------------- |
-| `GET: /health`       | Health                         |
-| `GET: /example    `  | Example API (remove as needed) |
-| `GET: /example/<id>` | Example API (remove as needed) |
+| Endpoint       | Description |
+| :------------- | :---------- |
+| `GET: /health` | Health      |
 
 ## Development helpers
 
@@ -188,7 +219,7 @@ docker build --no-cache --tag apha-insights-ingestion .
 Run:
 
 ```bash
-docker run -e PORT=3001 -p 3001:3001 apha-insights-ingestion
+docker run -e PORT=3002 -p 3002:3002 apha-insights-ingestion
 ```
 
 ### Docker Compose
@@ -196,14 +227,32 @@ docker run -e PORT=3001 -p 3001:3001 apha-insights-ingestion
 A local environment with:
 
 - Floci for AWS services (S3, SQS, SNS etc)
-- Redis
 - MongoDB
 - This service.
-- A commented out frontend example.
+
+Compose files:
+
+- `compose.yaml` — base services, no published ports.
+- `compose.override.yaml` — host ports for dev. Auto-loaded by `docker compose up` (no `-f` flags).
+- `compose.debug.yaml` — runs the service with the Node inspector attached.
+- `compose.test.yaml` — runs the test suite in a dedicated container, no published ports.
+- `compose.test.watch.yaml` — runs the test suite in watch mode.
 
 ```bash
-docker compose up --build -d
+npm run docker:up        # dev stack: ingestion API + MongoDB + Floci on 3002/27018/4567
+npm run docker:debug     # dev stack with the Node inspector on 9231
+npm run docker:test      # one-shot test run, isolated project, no port clashes with dev
+npm run docker:test:watch
 ```
+
+The test stack runs under its own Compose project name
+(`apha-insights-ingestion-test`) so it can run alongside the dev stack
+without clashing on ports, container names, or Mongo data.
+
+Host ports are offset from `apha-risk-insights-backend` (3001/9229/27017/4566)
+so both stacks can run side by side on the shared `apha-risk` network. To run
+every APHA Risk Insights service together, use
+[apha-incubator-core](https://github.com/DEFRA/apha-incubator-core).
 
 Mock AWS resources can be created when Floci starts up by editing the scripts in `./compose/floci/start.d/`.
 MongoDB records can also be created when Mongo starts by editing the scripts in `./compose/mongo/`.
