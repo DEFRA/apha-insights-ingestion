@@ -34,8 +34,9 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: |
-          npm ci
-          npm test
+          mkdir -p coverage
+          chmod -R a+rw ./coverage
+          docker compose -p apha-insights-ingestion-test -f compose.yaml -f compose.test.yaml run --build --rm apha-insights-ingestion
 
       - name: Build and Publish
         uses: DEFRA/cdp-build-action/build@main

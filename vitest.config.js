@@ -8,11 +8,17 @@ export default defineConfig({
     fileParallelism: false,
     coverage: {
       provider: 'v8',
+      clean: false,
       reportsDirectory: './coverage',
       reporter: ['text', 'lcov'],
       include: ['src/**/*.js'],
       exclude: [...configDefaults.exclude, 'coverage']
     },
-    setupFiles: ['.vite/mongo-memory-server.js', '.vite/setup-files.js']
+    setupFiles: ['test/setup.js'],
+    include: [
+      'test/unit/**/*.test.js',
+      'test/integration/**/*.test.js',
+      'src/**/*.test.js'
+    ]
   }
 })

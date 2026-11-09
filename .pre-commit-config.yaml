@@ -1,0 +1,18 @@
+repos:
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+  - repo: local
+    hooks:
+      - id: eslint-fix
+        name: ESLint with neostandard
+        entry: npm run lint:fix
+        language: system
+        pass_filenames: false
+      - id: prettier-format
+        name: Prettier format
+        entry: npm run format
+        language: system
+        pass_filenames: false

@@ -27,11 +27,7 @@ export const loggerOptions = {
   ...formatters[logConfig.format],
   nesting: true,
   mixin() {
-    const mixinValues = {}
     const traceId = getTraceId()
-    if (traceId) {
-      mixinValues.trace = { id: traceId }
-    }
-    return mixinValues
+    return traceId ? { trace: { id: traceId } } : {}
   }
 }

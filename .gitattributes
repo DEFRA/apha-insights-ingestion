@@ -1,0 +1,5 @@
+# Match .editorconfig's end_of_line = lf. Without this, Windows checkouts with
+# core.autocrlf=true convert .sh scripts to CRLF, which breaks them when run
+# inside Linux containers (e.g. compose/floci/start.d/10-setup-resources.sh).
+* text=auto eol=lf
+*.sh text eol=lf

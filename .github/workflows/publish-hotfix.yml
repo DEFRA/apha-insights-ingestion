@@ -33,8 +33,10 @@ jobs:
           cache: npm
 
       # Ensure tests pass. Add more checks if required
-      - run: npm ci
-      - run: npm test
+      - run: |
+          mkdir -p coverage
+          chmod -R a+rw ./coverage
+          docker compose -p apha-insights-ingestion-test -f compose.yaml -f compose.test.yaml run --build --rm apha-insights-ingestion
 
       - name: Publish Hot Fix
         uses: DEFRA/cdp-build-action/build-hotfix@main

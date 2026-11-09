@@ -1,0 +1,15 @@
+# Host ports are offset from apha-risk-insights-backend (3001, 9229, 4566, 27017)
+# so this stack can run alongside it
+services:
+  apha-insights-ingestion:
+    ports:
+      - '3002:3002'
+      - '9231:9229'
+
+  floci:
+    ports:
+      - '4567:4566'
+
+  mongodb:
+    ports:
+      - '27018:27017'

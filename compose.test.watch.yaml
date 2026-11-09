@@ -1,0 +1,3 @@
+services:
+  apha-insights-ingestion:
+    command: npm run test:watch
