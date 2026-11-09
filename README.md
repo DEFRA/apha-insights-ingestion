@@ -257,6 +257,25 @@ every APHA Risk Insights service together, use
 Mock AWS resources can be created when Floci starts up by editing the scripts in `./compose/floci/start.d/`.
 MongoDB records can also be created when Mongo starts by editing the scripts in `./compose/mongo/`.
 
+The service uses a single S3 bucket (`apha-insights-ingestion-local` locally),
+with key prefixes separating the data (e.g. `raw/wahis/`).
+
+This repo owns the bucket: `compose/floci/start.d/10-setup-resources.sh` is the
+only place it is defined. The standalone stack runs that script on its own
+floci, which keeps no data between restarts. `apha-incubator-core` mounts the same
+script into its shared floci and runs it on startup, without defining any
+resources itself. The shared floci does persist data, so the script skips
+buckets that already exist.
+
+To browse the bucket, install
+[stu](https://lusingander.github.io/stu/) (`brew install stu`) and run:
+
+```bash
+npm run local-s3                                          # shared floci from apha-incubator-core (4566)
+S3_ENDPOINT_URL=http://localhost:4567 npm run local-s3   # this repo's standalone stack
+npm run local-s3 -- --prefix raw/wahis/                   # extra args go to stu
+```
+
 ### Dependabot
 
 We have added an example dependabot configuration file to the repository. You can enable it by renaming

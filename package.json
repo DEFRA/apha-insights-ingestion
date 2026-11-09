@@ -19,6 +19,7 @@
     "docker:stop:v": "docker compose down -v",
     "docker:test": "docker compose -p apha-insights-ingestion-test down -v && docker compose -f compose.yaml -f compose.test.yaml -p apha-insights-ingestion-test run --build --rm apha-insights-ingestion",
     "docker:test:watch": "docker compose -p apha-insights-ingestion-test down -v && docker compose -f compose.yaml -f compose.test.yaml -f compose.test.watch.yaml -p apha-insights-ingestion-test run --build --rm apha-insights-ingestion",
+    "local-s3": "sh scripts/local-s3.sh",
     "format": "prettier --write \"**/*.{cjs,js,json,md}\"",
     "format:check": "prettier --check \"**/*.{cjs,js,json,md}\"",
     "check:all": "npm run security-audit && npm run format:check && npm run lint && npm test",
