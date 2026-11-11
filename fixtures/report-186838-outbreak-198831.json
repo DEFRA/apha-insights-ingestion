@@ -1,0 +1,178 @@
+{
+  "outbreak": {
+    "outbreakId": 198831,
+    "areaId": 31208,
+    "oieReference": "ob_198831",
+    "nationalReference": "2026-001635",
+    "disease": {
+      "diseaseId": 292,
+      "name": "-",
+      "group": null,
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": false
+    },
+    "latitude": 53.2503716017696,
+    "longitude": 6.2656862279677,
+    "location": "Lutjegast",
+    "isLocationApprox": true,
+    "epiUnitType": {
+      "id": 139,
+      "keyValue": "Farm",
+      "translation": "Farm",
+      "description": null
+    },
+    "isCluster": false,
+    "clusterCount": 1,
+    "startDate": "2026-10-26T00:00:00.000+00:00",
+    "endDate": null,
+    "createdByReportId": 186826,
+    "lastUpdateReportId": 186826,
+    "description": {
+      "original": "An outbreak of H5N1 was confirmed by the national reference labaratory on a Laying hen farm in the Municipalaty of Westerkwartier.",
+      "translation": "An outbreak of H5N1 was confirmed by the national reference labaratory on a laying hen farm in the Municipality of Westerkwartier."
+    }
+  },
+  "adminDivisions": [
+    {
+      "areaId": 2373,
+      "name": "Groningen",
+      "adminLevel": 1,
+      "parentAreaId": 170
+    },
+    {
+      "areaId": 31208,
+      "name": "Grootegast",
+      "adminLevel": 2,
+      "parentAreaId": 2373
+    }
+  ],
+  "quantityUnit": {
+    "id": 56,
+    "keyValue": "Animal",
+    "translation": "Animal",
+    "description": null
+  },
+  "speciesQuantities": [
+    {
+      "createdByCurrentReport": false,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 268909,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 43999,
+        "cases": 300,
+        "deaths": 250,
+        "killed": 43749,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "newQuantities": null,
+      "speciesType": {
+        "outbreakId": 198831,
+        "speciesId": 704,
+        "wildType": null,
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": {
+          "original": "Poultry",
+          "translation": "Poultry "
+        }
+      }
+    }
+  ],
+  "controlMeasures": [
+    {
+      "measure": {
+        "measureId": 8,
+        "category": null,
+        "name": "Disinfection",
+        "description": "Application, after thorough cleansing, of procedures intended to destroy the infectious or parasitic agents of animal diseases, including zoonoses; this applies to premises, vehicles and different objects which may have been directly or indirectly contaminated."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": null,
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 22,
+        "category": null,
+        "name": "Screening",
+        "description": "Survey carried out within the framework of a control programme for the disease, infection or infestation for health qualification of herds/flocks in all or part of the national territory."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 39,
+        "category": null,
+        "name": "Zoning",
+        "description": "Delineation (by regulatory means) of part of a country/territory containing an animal subpopulation with a distinct health status or risk with respect to a specific disease, infection or infestation for which required surveillance, control and biosecurity measures have been applied for the purpose of international trade."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 15,
+        "category": null,
+        "name": "Movement control",
+        "description": "Measures aimed at avoiding the spread of the disease, infection or infestation within a country/territory/zone/compartment due to the movement of animals or their products."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "diagnosticMethods": [
+    {
+      "nature": {
+        "id": 67,
+        "keyValue": "Clinical",
+        "translation": "Clinical",
+        "description": null
+      }
+    },
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "additionalMeasures": [],
+  "measuresNotImplemented": []
+}

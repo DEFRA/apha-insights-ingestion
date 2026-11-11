@@ -1,0 +1,178 @@
+{
+  "outbreak": {
+    "outbreakId": 198683,
+    "areaId": 44034,
+    "oieReference": "ob_198683",
+    "nationalReference": null,
+    "disease": {
+      "diseaseId": 293,
+      "name": "-",
+      "group": null,
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": false
+    },
+    "latitude": 45.2212751,
+    "longitude": 27.898408,
+    "location": "Chiscani",
+    "isLocationApprox": false,
+    "epiUnitType": {
+      "id": 154,
+      "keyValue": "Forest",
+      "translation": "Forest",
+      "description": null
+    },
+    "isCluster": false,
+    "clusterCount": 1,
+    "startDate": "2026-10-20T00:00:00.000+00:00",
+    "endDate": "2026-10-22T00:00:00.000+00:00",
+    "createdByReportId": 186715,
+    "lastUpdateReportId": 186715,
+    "description": null
+  },
+  "adminDivisions": [
+    {
+      "areaId": 6183,
+      "name": "Brăila",
+      "adminLevel": 1,
+      "parentAreaId": 193
+    },
+    {
+      "areaId": 44034,
+      "name": "Chiscani",
+      "adminLevel": 2,
+      "parentAreaId": 6183
+    }
+  ],
+  "quantityUnit": {
+    "id": 56,
+    "keyValue": "Animal",
+    "translation": "Animal",
+    "description": null
+  },
+  "speciesQuantities": [
+    {
+      "createdByCurrentReport": true,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 268685,
+        "speciesId": 309,
+        "speciesName": "Mallard",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 1,
+        "killed": null,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "newQuantities": {
+        "outbreakQuantitiesId": 268685,
+        "speciesId": 309,
+        "speciesName": "Mallard",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 1,
+        "killed": null,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "speciesType": {
+        "outbreakId": 198683,
+        "speciesId": 309,
+        "wildType": {
+          "original": "wild",
+          "translation": "Wild"
+        },
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": null
+      }
+    }
+  ],
+  "controlMeasures": [
+    {
+      "measure": {
+        "measureId": 4,
+        "category": null,
+        "name": "Control of wildlife reservoirs",
+        "description": "Measures to reduce the potential for wildlife to transmit the disease to domestic animals and human beings (control of wildlife reservoir populations, vaccination of target wildlife etc.)."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 8,
+        "category": null,
+        "name": "Disinfection",
+        "description": "Application, after thorough cleansing, of procedures intended to destroy the infectious or parasitic agents of animal diseases, including zoonoses; this applies to premises, vehicles and different objects which may have been directly or indirectly contaminated."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 16,
+        "category": null,
+        "name": "Official destruction of animal products",
+        "description": "Disposal of animal products under the supervision of the Competent Authority, to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": null,
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 29,
+        "category": null,
+        "name": "Surveillance within the restricted zone",
+        "description": "Undertaking surveillance activities within the containment or protection zone for the disease, infection or infestation being notified. "
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "diagnosticMethods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "additionalMeasures": [],
+  "measuresNotImplemented": []
+}

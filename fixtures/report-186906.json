@@ -1,0 +1,310 @@
+{
+  "event": {
+    "eventId": 7945,
+    "isForCountry": false,
+    "isAquatic": false,
+    "country": {
+      "areaId": 59,
+      "name": "Germany",
+      "isoCode": "DEU"
+    },
+    "disease": {
+      "diseaseId": 671,
+      "name": "Influenza A viruses of high pathogenicity (Inf. with) (non-poultry including wild birds) (2017-)",
+      "group": "Aves",
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": true
+    },
+    "causalAgent": {
+      "agentId": 252,
+      "name": "Highly pathogenic avian influenza virus",
+      "type": "Virus"
+    },
+    "subType": {
+      "disease": {
+        "diseaseId": 574,
+        "name": "H5N5",
+        "group": null,
+        "category": "Listed disease",
+        "isDomestic": false,
+        "isAquatic": false,
+        "selfDeclaration": true
+      },
+      "diseaseType": null
+    },
+    "clinicalSigns": true,
+    "startedOn": "2026-10-02T00:00:00.000+00:00",
+    "confirmOn": "2026-10-27T00:00:00.000+00:00",
+    "lastOccurrence": "2025-01-10T00:00:00.000+00:00",
+    "endedOn": null,
+    "reason": {
+      "id": 631,
+      "keyValue": "recurrence strain",
+      "translation": "Recurrence of an eradicated strain",
+      "description": null
+    },
+    "eventStatus": {
+      "id": 136,
+      "keyValue": "ongoing",
+      "translation": "On-going",
+      "description": null
+    },
+    "eventComment": null,
+    "zoonoticDesc": null
+  },
+  "report": {
+    "reportId": 186906,
+    "previousReportId": null,
+    "reportNumber": 0,
+    "reportReference": "SH HPAI H5N5 NON-P (10/26) IN",
+    "reportedOn": "2026-10-30T15:38:47.915+00:00",
+    "reportStatus": {
+      "id": 287,
+      "keyValue": "Validated",
+      "translation": "Validated",
+      "description": null
+    },
+    "noEvolutionReport": null,
+    "creationDate": "2026-10-30T15:29:00.390+00:00"
+  },
+  "sources": [
+    {
+      "source": {
+        "sourceId": 16,
+        "name": "Unknown or inconclusive",
+        "description": null
+      },
+      "otherSource": null
+    }
+  ],
+  "measures": [
+    {
+      "measure": {
+        "measureId": 4,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Control of wildlife reservoirs",
+        "description": "Measures to reduce the potential for wildlife to transmit the disease to domestic animals and human beings (control of wildlife reservoir populations, vaccination of target wildlife etc.)."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 4,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Control of wildlife reservoirs",
+        "description": "Measures to reduce the potential for wildlife to transmit the disease to domestic animals and human beings (control of wildlife reservoir populations, vaccination of target wildlife etc.)."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 8,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Disinfection",
+        "description": "Application, after thorough cleansing, of procedures intended to destroy the infectious or parasitic agents of animal diseases, including zoonoses; this applies to premises, vehicles and different objects which may have been directly or indirectly contaminated."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 10,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Disinfestation",
+        "description": "Application of procedures intended to eliminate infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 15,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Movement control",
+        "description": "Measures aimed at avoiding the spread of the disease, infection or infestation within a country/territory/zone/compartment due to the movement of animals or their products."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 15,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Movement control",
+        "description": "Measures aimed at avoiding the spread of the disease, infection or infestation within a country/territory/zone/compartment due to the movement of animals or their products."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 16,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Official destruction of animal products",
+        "description": "Disposal of animal products under the supervision of the Competent Authority, to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "methods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "outbreaks": [
+    {
+      "outbreakId": 198971,
+      "oieReference": "ob_198971",
+      "nationalReference": "26-015-01941",
+      "adminDivision": "Helgoland",
+      "location": "Helgoland",
+      "locationApprox": true,
+      "epiUnitType": "Not applicable",
+      "clusterCount": 1,
+      "startDate": "2026-10-02T00:00:00.000+00:00",
+      "endDate": "2026-10-27T00:00:00.000+00:00",
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186906,
+      "lastUpdateReportId": 186906,
+      "longitude": 7.89,
+      "latitude": 54.18,
+      "description": null,
+      "speciesNumber": 1
+    }
+  ],
+  "strategy": "Outbreak",
+  "laboratoryTests": [
+    {
+      "ltsIdOrObdtId": 36326,
+      "testId": 221,
+      "testName": "Real-time polymerase chain reaction (real-time PCR)",
+      "laboratoryId": 543,
+      "laboratoryName": "Friedrich-Loeffler Institute",
+      "labRoleSelected": "national",
+      "outbreakLocation": "Helgoland",
+      "outbreaksSampled": 1,
+      "outbreakId": 198971,
+      "testFrom": null,
+      "testUntil": null,
+      "resultDate": "2026-10-27T00:00:00.000+00:00",
+      "result": "Positive",
+      "speciesIds": [2597],
+      "species": ["Laridae (unidentified)"],
+      "createdByCurrentReport": true
+    }
+  ],
+  "quantitativeData": {
+    "news": [
+      {
+        "outbreakQuantitiesId": 269074,
+        "speciesId": 2597,
+        "speciesName": "Laridae (unidentified)",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 1,
+        "killed": 0,
+        "slaughtered": 0,
+        "vaccinated": 0
+      }
+    ],
+    "totals": [
+      {
+        "outbreakQuantitiesId": 269074,
+        "speciesId": 2597,
+        "speciesName": "Laridae (unidentified)",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 1,
+        "killed": 0,
+        "slaughtered": 0,
+        "vaccinated": 0
+      }
+    ],
+    "unit": {
+      "id": 56,
+      "keyValue": "Animal",
+      "translation": "Animal",
+      "description": null
+    }
+  },
+  "selfDeclaration": null,
+  "user": null
+}

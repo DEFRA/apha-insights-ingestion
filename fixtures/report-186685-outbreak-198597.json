@@ -1,0 +1,112 @@
+{
+  "outbreak": {
+    "outbreakId": 198597,
+    "areaId": 7884,
+    "oieReference": "ob_198597",
+    "nationalReference": "Lajas 01",
+    "disease": {
+      "diseaseId": 293,
+      "name": "-",
+      "group": null,
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": false
+    },
+    "latitude": 18.043,
+    "longitude": -67.058,
+    "location": "Lajas",
+    "isLocationApprox": true,
+    "epiUnitType": {
+      "id": 151,
+      "keyValue": "Backyard",
+      "translation": "Backyard",
+      "description": null
+    },
+    "isCluster": false,
+    "clusterCount": 1,
+    "startDate": "2026-10-05T00:00:00.000+00:00",
+    "endDate": null,
+    "createdByReportId": 186685,
+    "lastUpdateReportId": 186685,
+    "description": {
+      "original": "A backyard WOAH non-poultry multi-species premises. Clinical signs included increased mortality. HPAI H5 clade 2.3.4.4b was confirmed by PCR. Gene sequencing is pending. State officials have quarantined the affected premises.  ",
+      "translation": "A backyard WOAH non-poultry multi-species premises. Clinical signs included increased mortality. HPAI H5 clade 2.3.4.4b was confirmed by PCR. Gene sequencing is pending. State officials have quarantined the affected premises.  "
+    }
+  },
+  "adminDivisions": [
+    {
+      "areaId": 7884,
+      "name": "Lajas",
+      "adminLevel": 1,
+      "parentAreaId": 185
+    }
+  ],
+  "quantityUnit": {
+    "id": 56,
+    "keyValue": "Animal",
+    "translation": "Animal",
+    "description": null
+  },
+  "speciesQuantities": [
+    {
+      "createdByCurrentReport": true,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 267909,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 47,
+        "cases": null,
+        "deaths": null,
+        "killed": null,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "newQuantities": {
+        "outbreakQuantitiesId": 267909,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 47,
+        "cases": null,
+        "deaths": null,
+        "killed": null,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "speciesType": {
+        "outbreakId": 198597,
+        "speciesId": 704,
+        "wildType": null,
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": {
+          "original": "Non-poultry birds",
+          "translation": "Non-poultry birds"
+        }
+      }
+    }
+  ],
+  "controlMeasures": [],
+  "diagnosticMethods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    },
+    {
+      "nature": {
+        "id": 67,
+        "keyValue": "Clinical",
+        "translation": "Clinical",
+        "description": null
+      }
+    }
+  ],
+  "additionalMeasures": [],
+  "measuresNotImplemented": []
+}

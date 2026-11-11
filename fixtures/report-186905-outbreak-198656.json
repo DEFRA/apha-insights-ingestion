@@ -1,0 +1,182 @@
+{
+  "outbreak": {
+    "outbreakId": 198656,
+    "areaId": 228176,
+    "oieReference": "ob_198656",
+    "nationalReference": null,
+    "disease": {
+      "diseaseId": 289,
+      "name": "-",
+      "group": null,
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": false
+    },
+    "latitude": 56.736292,
+    "longitude": 22.684939,
+    "location": "Remtes pagasts",
+    "isLocationApprox": false,
+    "epiUnitType": {
+      "id": 633,
+      "keyValue": "Body of water",
+      "translation": "Body of water",
+      "description": null
+    },
+    "isCluster": false,
+    "clusterCount": 1,
+    "startDate": "2026-10-16T00:00:00.000+00:00",
+    "endDate": "2026-10-21T00:00:00.000+00:00",
+    "createdByReportId": 186701,
+    "lastUpdateReportId": 186701,
+    "description": {
+      "original": "Birds tested in frame of EFSA call project for Establishing capacities for active surveillance of highly pathogenic avian influenza in wild birds in Europe.",
+      "translation": "Birds tested in frame of EFSA call project for Establishing capacities for active surveillance of highly pathogenic avian influenza in wild birds in Europe."
+    }
+  },
+  "adminDivisions": [
+    {
+      "areaId": 228162,
+      "name": "Saldus",
+      "adminLevel": 1,
+      "parentAreaId": 138
+    },
+    {
+      "areaId": 228176,
+      "name": "Remtes pagasts",
+      "adminLevel": 2,
+      "parentAreaId": 228162
+    }
+  ],
+  "quantityUnit": {
+    "id": 56,
+    "keyValue": "Animal",
+    "translation": "Animal",
+    "description": null
+  },
+  "speciesQuantities": [
+    {
+      "createdByCurrentReport": false,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 268626,
+        "speciesId": 296,
+        "speciesName": "Northern Shoveler",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 0,
+        "killed": 1,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "newQuantities": null,
+      "speciesType": {
+        "outbreakId": 198656,
+        "speciesId": 296,
+        "wildType": {
+          "original": "wild",
+          "translation": "Wild"
+        },
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": null
+      }
+    },
+    {
+      "createdByCurrentReport": false,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 268627,
+        "speciesId": 297,
+        "speciesName": "Common Teal",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 0,
+        "killed": 1,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "newQuantities": null,
+      "speciesType": {
+        "outbreakId": 198656,
+        "speciesId": 297,
+        "wildType": {
+          "original": "wild",
+          "translation": "Wild"
+        },
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": null
+      }
+    },
+    {
+      "createdByCurrentReport": false,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 268625,
+        "speciesId": 307,
+        "speciesName": "Eurasian Wigeon",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 0,
+        "killed": 1,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "newQuantities": null,
+      "speciesType": {
+        "outbreakId": 198656,
+        "speciesId": 307,
+        "wildType": {
+          "original": "wild",
+          "translation": "Wild"
+        },
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": null
+      }
+    }
+  ],
+  "controlMeasures": [
+    {
+      "measure": {
+        "measureId": 8,
+        "category": null,
+        "name": "Disinfection",
+        "description": "Application, after thorough cleansing, of procedures intended to destroy the infectious or parasitic agents of animal diseases, including zoonoses; this applies to premises, vehicles and different objects which may have been directly or indirectly contaminated."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": null,
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "diagnosticMethods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "additionalMeasures": [],
+  "measuresNotImplemented": []
+}
