@@ -1,0 +1,196 @@
+{
+  "outbreak": {
+    "outbreakId": 198596,
+    "areaId": 7852,
+    "oieReference": "ob_198596",
+    "nationalReference": "Cabo Rojo 01",
+    "disease": {
+      "diseaseId": 293,
+      "name": "-",
+      "group": null,
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": false
+    },
+    "latitude": 18.087,
+    "longitude": -67.144,
+    "location": "Cabo Rojo",
+    "isLocationApprox": true,
+    "epiUnitType": {
+      "id": 151,
+      "keyValue": "Backyard",
+      "translation": "Backyard",
+      "description": null
+    },
+    "isCluster": false,
+    "clusterCount": 1,
+    "startDate": "2026-10-03T00:00:00.000+00:00",
+    "endDate": null,
+    "createdByReportId": 186685,
+    "lastUpdateReportId": 186685,
+    "description": {
+      "original": "A backyard WOAH non-poultry chicken premises. Clinical signs included increased mortality. HPAI H5N1 clade 2.3.4.4b was confirmed by PCR and gene sequencing. State officials have quarantined the affected premises. Depopulation and disposal were completed on 16 Oct 2026.  ",
+      "translation": "A backyard WOAH non-poultry chicken premises. Clinical signs included increased mortality. HPAI H5N1 clade 2.3.4.4b was confirmed by PCR and gene sequencing. State officials have quarantined the affected premises. Depopulation and disposal were completed on 16 Oct 2026.  "
+    }
+  },
+  "adminDivisions": [
+    {
+      "areaId": 7852,
+      "name": "Cabo Rojo",
+      "adminLevel": 1,
+      "parentAreaId": 185
+    }
+  ],
+  "quantityUnit": {
+    "id": 56,
+    "keyValue": "Animal",
+    "translation": "Animal",
+    "description": null
+  },
+  "speciesQuantities": [
+    {
+      "createdByCurrentReport": true,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 267908,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 40,
+        "cases": null,
+        "deaths": 17,
+        "killed": 23,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "newQuantities": {
+        "outbreakQuantitiesId": 267908,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 40,
+        "cases": null,
+        "deaths": 17,
+        "killed": 23,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "speciesType": {
+        "outbreakId": 198596,
+        "speciesId": 704,
+        "wildType": null,
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": {
+          "original": "Non-poultry birds",
+          "translation": "Non-poultry birds"
+        }
+      }
+    }
+  ],
+  "controlMeasures": [
+    {
+      "measure": {
+        "measureId": 17,
+        "category": null,
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 21,
+        "category": null,
+        "name": "Quarantine",
+        "description": "Infected animals and when appropriate, epidemiologically linked susceptible animals are kept isolated under the supervision of the Veterinary Authority until all sanitary measures considered necessary to control or eradicate the disease have been completed."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 25,
+        "category": null,
+        "name": "Stamping out",
+        "description": "The killing of the animals which are affected and those suspected of being affected in the herd or flock and, where appropriate, those in other herds or flocks which have been exposed to infection by direct animal to animal contact, or by indirect contact with the causal pathogenic agent; animals should be killed in accordance with Chapter 7.6. The disposal of carcasses and, where relevant, animal products by rendering, burning or burial, or by any other method described in Chapter 4.12. The cleansing and disinfection of establishments through procedures defined in Chapter 4.13."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 33,
+        "category": null,
+        "name": "Traceability",
+        "description": "Investigation of any epidemiological link of animals / animal products, in order to determine origin and spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 40,
+        "category": null,
+        "name": "Surveillance without restriction zone",
+        "description": "Undertaking surveillance activities without any defined containment or protection zone for the disease, infection or infestation being notified"
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "diagnosticMethods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    },
+    {
+      "nature": {
+        "id": 67,
+        "keyValue": "Clinical",
+        "translation": "Clinical",
+        "description": null
+      }
+    }
+  ],
+  "additionalMeasures": [
+    {
+      "measureId": 17,
+      "category": null,
+      "name": "Official disposal of carcasses, by-products and waste",
+      "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+    },
+    {
+      "measureId": 25,
+      "category": null,
+      "name": "Stamping out",
+      "description": "The killing of the animals which are affected and those suspected of being affected in the herd or flock and, where appropriate, those in other herds or flocks which have been exposed to infection by direct animal to animal contact, or by indirect contact with the causal pathogenic agent; animals should be killed in accordance with Chapter 7.6. The disposal of carcasses and, where relevant, animal products by rendering, burning or burial, or by any other method described in Chapter 4.12. The cleansing and disinfection of establishments through procedures defined in Chapter 4.13."
+    }
+  ],
+  "measuresNotImplemented": []
+}

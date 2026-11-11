@@ -1,0 +1,320 @@
+{
+  "event": {
+    "eventId": 7931,
+    "isForCountry": false,
+    "isAquatic": false,
+    "country": {
+      "areaId": 193,
+      "name": "Romania",
+      "isoCode": "ROU"
+    },
+    "disease": {
+      "diseaseId": 671,
+      "name": "Influenza A viruses of high pathogenicity (Inf. with) (non-poultry including wild birds) (2017-)",
+      "group": "Aves",
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": true
+    },
+    "causalAgent": {
+      "agentId": 252,
+      "name": "Highly pathogenic avian influenza virus",
+      "type": "Virus"
+    },
+    "subType": {
+      "disease": {
+        "diseaseId": 558,
+        "name": "H5N1",
+        "group": null,
+        "category": "Listed disease",
+        "isDomestic": false,
+        "isAquatic": false,
+        "selfDeclaration": true
+      },
+      "diseaseType": null
+    },
+    "clinicalSigns": true,
+    "startedOn": "2026-10-20T00:00:00.000+00:00",
+    "confirmOn": "2026-10-22T00:00:00.000+00:00",
+    "lastOccurrence": "2022-03-18T00:00:00.000+00:00",
+    "endedOn": null,
+    "reason": {
+      "id": 280,
+      "keyValue": "reccurence disease",
+      "translation": "Recurrence of an eradicated disease",
+      "description": null
+    },
+    "eventStatus": {
+      "id": 136,
+      "keyValue": "ongoing",
+      "translation": "On-going",
+      "description": null
+    },
+    "eventComment": null,
+    "zoonoticDesc": null
+  },
+  "report": {
+    "reportId": 186715,
+    "previousReportId": null,
+    "reportNumber": 0,
+    "reportReference": null,
+    "reportedOn": "2026-10-23T09:58:07.440+00:00",
+    "reportStatus": {
+      "id": 287,
+      "keyValue": "Validated",
+      "translation": "Validated",
+      "description": null
+    },
+    "noEvolutionReport": null,
+    "creationDate": "2026-10-23T09:48:14.647+00:00"
+  },
+  "sources": [
+    {
+      "source": {
+        "sourceId": 16,
+        "name": "Unknown or inconclusive",
+        "description": null
+      },
+      "otherSource": null
+    }
+  ],
+  "measures": [
+    {
+      "measure": {
+        "measureId": 4,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Control of wildlife reservoirs",
+        "description": "Measures to reduce the potential for wildlife to transmit the disease to domestic animals and human beings (control of wildlife reservoir populations, vaccination of target wildlife etc.)."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 8,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Disinfection",
+        "description": "Application, after thorough cleansing, of procedures intended to destroy the infectious or parasitic agents of animal diseases, including zoonoses; this applies to premises, vehicles and different objects which may have been directly or indirectly contaminated."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 16,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Official destruction of animal products",
+        "description": "Disposal of animal products under the supervision of the Competent Authority, to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 29,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Surveillance within the restricted zone",
+        "description": "Undertaking surveillance activities within the containment or protection zone for the disease, infection or infestation being notified. "
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "methods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "outbreaks": [
+    {
+      "outbreakId": 198684,
+      "oieReference": "ob_198684",
+      "nationalReference": null,
+      "adminDivision": "Chiscani",
+      "location": "Chiscani",
+      "locationApprox": false,
+      "epiUnitType": "Forest",
+      "clusterCount": 1,
+      "startDate": "2026-10-21T00:00:00.000+00:00",
+      "endDate": "2026-10-22T00:00:00.000+00:00",
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186715,
+      "lastUpdateReportId": 186715,
+      "longitude": 28.085251,
+      "latitude": 45.244856,
+      "description": null,
+      "speciesNumber": 1
+    },
+    {
+      "outbreakId": 198683,
+      "oieReference": "ob_198683",
+      "nationalReference": null,
+      "adminDivision": "Chiscani",
+      "location": "Chiscani",
+      "locationApprox": false,
+      "epiUnitType": "Forest",
+      "clusterCount": 1,
+      "startDate": "2026-10-20T00:00:00.000+00:00",
+      "endDate": "2026-10-22T00:00:00.000+00:00",
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186715,
+      "lastUpdateReportId": 186715,
+      "longitude": 27.898408,
+      "latitude": 45.2212751,
+      "description": null,
+      "speciesNumber": 1
+    }
+  ],
+  "strategy": "Outbreak",
+  "laboratoryTests": [
+    {
+      "ltsIdOrObdtId": 36094,
+      "testId": 221,
+      "testName": "Real-time polymerase chain reaction (real-time PCR)",
+      "laboratoryId": 1733,
+      "laboratoryName": "Institute for Diagnosis and Animal Health (IDAH)",
+      "labRoleSelected": "national",
+      "outbreakLocation": "Chiscani",
+      "outbreaksSampled": 1,
+      "outbreakId": 198684,
+      "testFrom": null,
+      "testUntil": null,
+      "resultDate": "2026-10-22T00:00:00.000+00:00",
+      "result": "Positive",
+      "speciesIds": [382],
+      "species": ["Lesser white-fronted goose"],
+      "createdByCurrentReport": true
+    },
+    {
+      "ltsIdOrObdtId": 36093,
+      "testId": 221,
+      "testName": "Real-time polymerase chain reaction (real-time PCR)",
+      "laboratoryId": 1733,
+      "laboratoryName": "Institute for Diagnosis and Animal Health (IDAH)",
+      "labRoleSelected": "national",
+      "outbreakLocation": "Chiscani",
+      "outbreaksSampled": 1,
+      "outbreakId": 198683,
+      "testFrom": null,
+      "testUntil": null,
+      "resultDate": "2026-10-22T00:00:00.000+00:00",
+      "result": "Positive",
+      "speciesIds": [309],
+      "species": ["Mallard"],
+      "createdByCurrentReport": true
+    }
+  ],
+  "quantitativeData": {
+    "news": [
+      {
+        "outbreakQuantitiesId": 268685,
+        "speciesId": 309,
+        "speciesName": "Mallard",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 1,
+        "killed": null,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      {
+        "outbreakQuantitiesId": 268686,
+        "speciesId": 382,
+        "speciesName": "Lesser white-fronted goose",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 1,
+        "killed": null,
+        "slaughtered": null,
+        "vaccinated": null
+      }
+    ],
+    "totals": [
+      {
+        "outbreakQuantitiesId": 268685,
+        "speciesId": 309,
+        "speciesName": "Mallard",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 1,
+        "killed": null,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      {
+        "outbreakQuantitiesId": 268686,
+        "speciesId": 382,
+        "speciesName": "Lesser white-fronted goose",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 1,
+        "killed": null,
+        "slaughtered": null,
+        "vaccinated": null
+      }
+    ],
+    "unit": {
+      "id": 56,
+      "keyValue": "Animal",
+      "translation": "Animal",
+      "description": null
+    }
+  },
+  "selfDeclaration": null,
+  "user": null
+}

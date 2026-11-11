@@ -1,0 +1,273 @@
+{
+  "event": {
+    "eventId": 7925,
+    "isForCountry": false,
+    "isAquatic": false,
+    "country": {
+      "areaId": 185,
+      "name": "Puerto Rico",
+      "isoCode": "PRI"
+    },
+    "disease": {
+      "diseaseId": 671,
+      "name": "Influenza A viruses of high pathogenicity (Inf. with) (non-poultry including wild birds) (2017-)",
+      "group": "Aves",
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": true
+    },
+    "causalAgent": {
+      "agentId": 252,
+      "name": "Highly pathogenic avian influenza virus",
+      "type": "Virus"
+    },
+    "subType": {
+      "disease": {
+        "diseaseId": 558,
+        "name": "H5N1",
+        "group": null,
+        "category": "Listed disease",
+        "isDomestic": false,
+        "isAquatic": false,
+        "selfDeclaration": true
+      },
+      "diseaseType": null
+    },
+    "clinicalSigns": true,
+    "startedOn": "2026-10-03T00:00:00.000+00:00",
+    "confirmOn": "2026-10-20T00:00:00.000+00:00",
+    "lastOccurrence": "2025-05-17T00:00:00.000+00:00",
+    "endedOn": null,
+    "reason": {
+      "id": 631,
+      "keyValue": "recurrence strain",
+      "translation": "Recurrence of an eradicated strain",
+      "description": null
+    },
+    "eventStatus": {
+      "id": 136,
+      "keyValue": "ongoing",
+      "translation": "On-going",
+      "description": null
+    },
+    "eventComment": {
+      "original": "Highly pathogenic avian influenza (HPAI) H5 clade 2.3.4.4b was confirmed in two WOAH non-poultry backyard flocks in Puerto Rico. A previous detection of HPAI H5N1 in a backyard WOAH poultry flock in Puerto Rico was reported in Event 6185. According to article 10.4.1.4 of the Terrestrial Animal Health Code, a Member Country should not impose bans on the international trade of poultry commodities in response to notification of infection with any Influenza A viruses in birds other than poultry. For updated information about HPAI testing of wild birds in the United States, see: https://www.aphis.usda.gov/livestock-poultry-disease/avian/avian-influenza/hpai-detections/wild-birds",
+      "translation": "Highly pathogenic avian influenza (HPAI) H5 clade 2.3.4.4b was confirmed in two WOAH non-poultry backyard flocks in Puerto Rico. A previous detection of HPAI H5N1 in a backyard WOAH poultry flock in Puerto Rico was reported in Event 6185. According to article 10.4.1.4 of the Terrestrial Animal Health Code, a Member Country should not impose bans on the international trade of poultry commodities in response to notification of infection with any Influenza A viruses in birds other than poultry. For updated information about HPAI testing of wild birds in the United States, see: https://www.aphis.usda.gov/livestock-poultry-disease/avian/avian-influenza/hpai-detections/wild-birds"
+    },
+    "zoonoticDesc": null
+  },
+  "report": {
+    "reportId": 186685,
+    "previousReportId": null,
+    "reportNumber": 0,
+    "reportReference": null,
+    "reportedOn": "2026-10-24T10:58:21.803+00:00",
+    "reportStatus": {
+      "id": 287,
+      "keyValue": "Validated",
+      "translation": "Validated",
+      "description": null
+    },
+    "noEvolutionReport": null,
+    "creationDate": "2026-10-21T23:03:21.349+00:00"
+  },
+  "sources": [
+    {
+      "source": {
+        "sourceId": 16,
+        "name": "Unknown or inconclusive",
+        "description": null
+      },
+      "otherSource": null
+    }
+  ],
+  "measures": [
+    {
+      "measure": {
+        "measureId": 21,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Quarantine",
+        "description": "Infected animals and when appropriate, epidemiologically linked susceptible animals are kept isolated under the supervision of the Veterinary Authority until all sanitary measures considered necessary to control or eradicate the disease have been completed."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 40,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Surveillance without restriction zone",
+        "description": "Undertaking surveillance activities without any defined containment or protection zone for the disease, infection or infestation being notified"
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 33,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Traceability",
+        "description": "Investigation of any epidemiological link of animals / animal products, in order to determine origin and spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "methods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    },
+    {
+      "nature": {
+        "id": 67,
+        "keyValue": "Clinical",
+        "translation": "Clinical",
+        "description": null
+      }
+    }
+  ],
+  "outbreaks": [
+    {
+      "outbreakId": 198596,
+      "oieReference": "ob_198596",
+      "nationalReference": "Cabo Rojo 01",
+      "adminDivision": "Cabo Rojo",
+      "location": "Cabo Rojo",
+      "locationApprox": true,
+      "epiUnitType": "Backyard",
+      "clusterCount": 1,
+      "startDate": "2026-10-03T00:00:00.000+00:00",
+      "endDate": null,
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186685,
+      "lastUpdateReportId": 186685,
+      "longitude": -67.144,
+      "latitude": 18.087,
+      "description": "A backyard WOAH non-poultry chicken premises. Clinical signs included increased mortality. HPAI H5N1 clade 2.3.4.4b was confirmed by PCR and gene sequencing. State officials have quarantined the affected premises. Depopulation and disposal were completed on 16 Oct 2026.  ",
+      "speciesNumber": 1
+    },
+    {
+      "outbreakId": 198597,
+      "oieReference": "ob_198597",
+      "nationalReference": "Lajas 01",
+      "adminDivision": "Lajas",
+      "location": "Lajas",
+      "locationApprox": true,
+      "epiUnitType": "Backyard",
+      "clusterCount": 1,
+      "startDate": "2026-10-05T00:00:00.000+00:00",
+      "endDate": null,
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186685,
+      "lastUpdateReportId": 186685,
+      "longitude": -67.058,
+      "latitude": 18.043,
+      "description": "A backyard WOAH non-poultry multi-species premises. Clinical signs included increased mortality. HPAI H5 clade 2.3.4.4b was confirmed by PCR. Gene sequencing is pending. State officials have quarantined the affected premises.  ",
+      "speciesNumber": 1
+    }
+  ],
+  "strategy": "Event",
+  "laboratoryTests": [
+    {
+      "ltsIdOrObdtId": 47100,
+      "testId": 110,
+      "testName": "Gene sequencing",
+      "laboratoryId": 92,
+      "laboratoryName": "National Veterinary Services Laboratories (NVSL), Ames, Iowa",
+      "labRoleSelected": "OIE Reference Laboratory",
+      "outbreakLocation": null,
+      "outbreaksSampled": 1,
+      "outbreakId": null,
+      "testFrom": "2026-10-20T00:00:00.000+00:00",
+      "testUntil": "2026-10-20T00:00:00.000+00:00",
+      "resultDate": null,
+      "result": "Positive",
+      "speciesIds": [704],
+      "species": ["Birds"],
+      "createdByCurrentReport": true
+    },
+    {
+      "ltsIdOrObdtId": 47099,
+      "testId": 231,
+      "testName": "Real-time reverse transcription polymerase chain reaction (rRT-PCR)",
+      "laboratoryId": 92,
+      "laboratoryName": "National Veterinary Services Laboratories (NVSL), Ames, Iowa",
+      "labRoleSelected": "OIE Reference Laboratory",
+      "outbreakLocation": null,
+      "outbreaksSampled": 2,
+      "outbreakId": null,
+      "testFrom": "2026-10-09T00:00:00.000+00:00",
+      "testUntil": "2026-10-14T00:00:00.000+00:00",
+      "resultDate": null,
+      "result": "Positive",
+      "speciesIds": [704],
+      "species": ["Birds"],
+      "createdByCurrentReport": true
+    }
+  ],
+  "quantitativeData": {
+    "news": [
+      {
+        "outbreakQuantitiesId": 267909,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 87,
+        "cases": null,
+        "deaths": 17,
+        "killed": 23,
+        "slaughtered": null,
+        "vaccinated": null
+      }
+    ],
+    "totals": [
+      {
+        "outbreakQuantitiesId": 267909,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 87,
+        "cases": null,
+        "deaths": 17,
+        "killed": 23,
+        "slaughtered": null,
+        "vaccinated": null
+      }
+    ],
+    "unit": {
+      "id": 56,
+      "keyValue": "Animal",
+      "translation": "Animal",
+      "description": null
+    }
+  },
+  "selfDeclaration": null,
+  "user": null
+}
