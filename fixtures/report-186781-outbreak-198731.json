@@ -1,0 +1,271 @@
+{
+  "outbreak": {
+    "outbreakId": 198731,
+    "areaId": 193574,
+    "oieReference": "ob_198731",
+    "nationalReference": "26-015-01934",
+    "disease": {
+      "diseaseId": 292,
+      "name": "-",
+      "group": null,
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": false
+    },
+    "latitude": 53.9,
+    "longitude": 10.18,
+    "location": "Bark",
+    "isLocationApprox": true,
+    "epiUnitType": {
+      "id": 139,
+      "keyValue": "Farm",
+      "translation": "Farm",
+      "description": null
+    },
+    "isCluster": false,
+    "clusterCount": 1,
+    "startDate": "2026-10-23T00:00:00.000+00:00",
+    "endDate": null,
+    "createdByReportId": 186781,
+    "lastUpdateReportId": 186781,
+    "description": {
+      "original": "laying hens",
+      "translation": "laying hens"
+    }
+  },
+  "adminDivisions": [
+    {
+      "areaId": 2480,
+      "name": "Schleswig-Holstein",
+      "adminLevel": 1,
+      "parentAreaId": 59
+    },
+    {
+      "areaId": 23086,
+      "name": "Segeberg",
+      "adminLevel": 2,
+      "parentAreaId": 2480
+    },
+    {
+      "areaId": 193574,
+      "name": "Leezen",
+      "adminLevel": 3,
+      "parentAreaId": 23086
+    }
+  ],
+  "quantityUnit": {
+    "id": 56,
+    "keyValue": "Animal",
+    "translation": "Animal",
+    "description": null
+  },
+  "speciesQuantities": [
+    {
+      "createdByCurrentReport": true,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 268762,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 400,
+        "cases": 50,
+        "deaths": 50,
+        "killed": 0,
+        "slaughtered": 0,
+        "vaccinated": 0
+      },
+      "newQuantities": {
+        "outbreakQuantitiesId": 268762,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 400,
+        "cases": 50,
+        "deaths": 50,
+        "killed": 0,
+        "slaughtered": 0,
+        "vaccinated": 0
+      },
+      "speciesType": {
+        "outbreakId": 198731,
+        "speciesId": 704,
+        "wildType": null,
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": {
+          "original": "Poultry",
+          "translation": "Poultry "
+        }
+      }
+    }
+  ],
+  "controlMeasures": [
+    {
+      "measure": {
+        "measureId": 4,
+        "category": null,
+        "name": "Control of wildlife reservoirs",
+        "description": "Measures to reduce the potential for wildlife to transmit the disease to domestic animals and human beings (control of wildlife reservoir populations, vaccination of target wildlife etc.)."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 8,
+        "category": null,
+        "name": "Disinfection",
+        "description": "Application, after thorough cleansing, of procedures intended to destroy the infectious or parasitic agents of animal diseases, including zoonoses; this applies to premises, vehicles and different objects which may have been directly or indirectly contaminated."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 16,
+        "category": null,
+        "name": "Official destruction of animal products",
+        "description": "Disposal of animal products under the supervision of the Competent Authority, to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": null,
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 22,
+        "category": null,
+        "name": "Screening",
+        "description": "Survey carried out within the framework of a control programme for the disease, infection or infestation for health qualification of herds/flocks in all or part of the national territory."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 25,
+        "category": null,
+        "name": "Stamping out",
+        "description": "The killing of the animals which are affected and those suspected of being affected in the herd or flock and, where appropriate, those in other herds or flocks which have been exposed to infection by direct animal to animal contact, or by indirect contact with the causal pathogenic agent; animals should be killed in accordance with Chapter 7.6. The disposal of carcasses and, where relevant, animal products by rendering, burning or burial, or by any other method described in Chapter 4.12. The cleansing and disinfection of establishments through procedures defined in Chapter 4.13."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 33,
+        "category": null,
+        "name": "Traceability",
+        "description": "Investigation of any epidemiological link of animals / animal products, in order to determine origin and spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 39,
+        "category": null,
+        "name": "Zoning",
+        "description": "Delineation (by regulatory means) of part of a country/territory containing an animal subpopulation with a distinct health status or risk with respect to a specific disease, infection or infestation for which required surveillance, control and biosecurity measures have been applied for the purpose of international trade."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 26,
+        "category": null,
+        "name": "Surveillance outside the restricted zone",
+        "description": "Undertaking surveillance activities in parts of the country/territory other than those defined as the containment or protection zone for the disease, infection or infestation being notified. "
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 29,
+        "category": null,
+        "name": "Surveillance within the restricted zone",
+        "description": "Undertaking surveillance activities within the containment or protection zone for the disease, infection or infestation being notified. "
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 15,
+        "category": null,
+        "name": "Movement control",
+        "description": "Measures aimed at avoiding the spread of the disease, infection or infestation within a country/territory/zone/compartment due to the movement of animals or their products."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "diagnosticMethods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "additionalMeasures": [],
+  "measuresNotImplemented": []
+}

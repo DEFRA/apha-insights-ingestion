@@ -1,0 +1,97 @@
+{
+  "outbreak": {
+    "outbreakId": 198552,
+    "areaId": 217722,
+    "oieReference": "ob_198552",
+    "nationalReference": "AIV 2026 21",
+    "disease": null,
+    "latitude": 55.61,
+    "longitude": -1.86,
+    "location": "Near Belford, North Northumberland",
+    "isLocationApprox": false,
+    "epiUnitType": {
+      "id": 139,
+      "keyValue": "Farm",
+      "translation": "Farm",
+      "description": null
+    },
+    "isCluster": false,
+    "clusterCount": 1,
+    "startDate": "2026-10-15T00:00:00.000+00:00",
+    "endDate": null,
+    "createdByReportId": 186649,
+    "lastUpdateReportId": 186720,
+    "description": {
+      "original": "Commercial, 32k bird laying flock (73 weeks of age). Positive test for HPAI H5N1, clinical signs presented prior to testing.\n\nDepopulation completed on 21/10/2026 and pre-liminary C&D completed on 23/10/2026.",
+      "translation": "Commercial, 32k bird laying flock (73 weeks of age). Positive test for HPAI H5N1, clinical signs presented prior to testing.\n\nDepopulation completed on 21/10/2026 and pre-liminary C&D completed on 23/10/2026."
+    }
+  },
+  "adminDivisions": [
+    {
+      "areaId": 217407,
+      "name": "England",
+      "adminLevel": 1,
+      "parentAreaId": 79
+    },
+    {
+      "areaId": 217721,
+      "name": "Northumberland",
+      "adminLevel": 2,
+      "parentAreaId": 217407
+    },
+    {
+      "areaId": 217722,
+      "name": "Northumberland",
+      "adminLevel": 3,
+      "parentAreaId": 217721
+    }
+  ],
+  "quantityUnit": {
+    "id": 56,
+    "keyValue": "Animal",
+    "translation": "Animal",
+    "description": null
+  },
+  "speciesQuantities": [
+    {
+      "createdByCurrentReport": false,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 268694,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 30500,
+        "cases": 1166,
+        "deaths": 1156,
+        "killed": 29344,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      "newQuantities": null,
+      "speciesType": {
+        "outbreakId": 198552,
+        "speciesId": 704,
+        "wildType": null,
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": {
+          "original": "Poultry",
+          "translation": "Poultry "
+        }
+      }
+    }
+  ],
+  "controlMeasures": [],
+  "diagnosticMethods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "additionalMeasures": [],
+  "measuresNotImplemented": []
+}
