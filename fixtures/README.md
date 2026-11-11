@@ -4,6 +4,8 @@ A filtered sample of real responses from the WAHIS public API (`https://wahis.wo
 Fetched on 2026-11-09 with `language=en`. Only a selected subset of events, reports and outbreaks is included (see [Files](#files)); it is not the complete WAHIS dataset. Each file's content is as returned by the API, pretty-printed with 2-space indent.
 See `NOTICE.md` for the data source, modifications and WOAH disclaimer.
 
+The unit tests in `test/unit/mappers/` and `test/unit/services/` read these files directly. `compose.test.yaml` mounts this folder into the test container.
+
 Endpoints are documented in `wahis-openapi` (`wahis-openapi.yaml`, `workflows.md` Workflow 4).
 
 | File                                           | Endpoint                                                              |

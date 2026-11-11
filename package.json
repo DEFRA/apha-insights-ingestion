@@ -30,7 +30,8 @@
     "server:watch": "node --watch --inspect=0.0.0.0 $([ -f .env ] && echo --env-file=.env) ./src",
     "start": "NODE_ENV=production node . --env-file-if-exists=.env",
     "test": "TZ=UTC vitest run --coverage",
-    "test:watch": "TZ=UTC vitest"
+    "test:watch": "TZ=UTC vitest",
+    "transform:wahis": "node --env-file-if-exists=.env scripts/transform-wahis.js"
   },
   "imports": {
     "#/*": "./src/*"
@@ -38,6 +39,7 @@
   "author": "Defra DDTS",
   "license": "OGL-UK-3.0",
   "dependencies": {
+    "@aws-sdk/client-s3": "3.1152.0",
     "@aws-sdk/credential-providers": "3.1152.0",
     "@defra/cdp-auditing": "0.6.2",
     "@defra/cdp-metrics": "0.6.1",

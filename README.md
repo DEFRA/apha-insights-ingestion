@@ -276,6 +276,41 @@ S3_ENDPOINT_URL=http://localhost:4567 npm run local-s3   # this repo's standalon
 npm run local-s3 -- --prefix raw/wahis/                   # extra args go to stu
 ```
 
+### Transform WAHIS data (spike)
+
+`npm run transform:wahis` reads raw WAHIS responses from the bucket and writes
+one v2 outbreak record per outbreak (see `src/data/schemas/`). Raw data is
+uploaded by hand, one folder per fetch date:
+
+```text
+raw/wahis/{date}/event-filtered-list.json
+raw/wahis/{date}/reports/{reportId}/report.json
+raw/wahis/{date}/reports/{reportId}/outbreaks/{outbreakId}.json
+transformed/wahis-outbreak/outbreak_id={outbreakId}.json   <- output
+```
+
+When several reports include an outbreak, the latest report wins. If the same
+report was fetched on more than one date, the latest fetch wins.
+
+```bash
+export AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test
+npm run transform:wahis -- --key raw/wahis/2026-11-09/reports/186838/outbreaks/198855.json --dry-run
+npm run transform:wahis -- --limit 5
+npm run transform:wahis                                   # everything
+S3_ENDPOINT_URL=http://localhost:4567 npm run transform:wahis   # standalone floci
+```
+
+`--dry-run` prints the records and writes nothing. The script exits non-zero
+if any outbreak fails to transform.
+
+To copy the output to a real AWS bucket, download it from floci, then upload
+with your AWS credentials:
+
+```bash
+aws --endpoint-url=http://localhost:4566 s3 sync s3://apha-insights-ingestion-local/transformed/ ./transformed/
+aws s3 sync ./transformed/ s3://<dev-bucket>/transformed/
+```
+
 ### Dependabot
 
 We have added an example dependabot configuration file to the repository. You can enable it by renaming

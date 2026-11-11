@@ -112,6 +112,29 @@ export const config = convict({
       }
     }
   },
+  aws: {
+    region: {
+      doc: 'AWS region',
+      format: String,
+      default: 'eu-west-2',
+      env: 'AWS_REGION'
+    },
+    s3: {
+      endpoint: {
+        doc: 'S3 endpoint override, e.g. floci. Null uses real AWS.',
+        format: String,
+        nullable: true,
+        default: 'http://localhost:4566',
+        env: 'S3_ENDPOINT_URL'
+      },
+      bucket: {
+        doc: 'S3 bucket holding raw and transformed data',
+        format: String,
+        default: 'apha-insights-ingestion-local',
+        env: 'S3_BUCKET'
+      }
+    }
+  },
   httpProxy: {
     doc: 'HTTP Proxy URL',
     format: String,

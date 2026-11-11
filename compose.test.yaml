@@ -20,6 +20,7 @@ services:
       MONGO_URI: mongodb://mongo-test:27017/
     volumes:
       - ./test:/home/node/test
+      - ./fixtures:/home/node/fixtures:ro
       - ./vitest.config.js:/home/node/vitest.config.js
       - ./coverage:/home/node/coverage
       - ./src:/home/node/src
