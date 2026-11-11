@@ -1,0 +1,116 @@
+{
+  "outbreak": {
+    "outbreakId": 198072,
+    "areaId": 55197,
+    "oieReference": "ob_198072",
+    "nationalReference": "002.26.00283",
+    "disease": {
+      "diseaseId": 292,
+      "name": "-",
+      "group": null,
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": false
+    },
+    "latitude": -5.406581,
+    "longitude": -80.683055,
+    "location": "Centro Poblado El Tallan",
+    "isLocationApprox": true,
+    "epiUnitType": {
+      "id": 139,
+      "keyValue": "Farm",
+      "translation": "Farm",
+      "description": null
+    },
+    "isCluster": false,
+    "clusterCount": 1,
+    "startDate": "2026-10-05T00:00:00.000+00:00",
+    "endDate": null,
+    "createdByReportId": 186444,
+    "lastUpdateReportId": 186444,
+    "description": {
+      "original": "Granja de gallinas de postura con población total de 5800 aves",
+      "translation": "Laying hen farm with a total flock of 5,800 birds"
+    }
+  },
+  "adminDivisions": [
+    {
+      "areaId": 6090,
+      "name": "Piura",
+      "adminLevel": 1,
+      "parentAreaId": 180
+    },
+    {
+      "areaId": 47551,
+      "name": "Piura",
+      "adminLevel": 2,
+      "parentAreaId": 6090
+    },
+    {
+      "areaId": 55197,
+      "name": "El Tallan",
+      "adminLevel": 3,
+      "parentAreaId": 47551
+    }
+  ],
+  "quantityUnit": {
+    "id": 56,
+    "keyValue": "Animal",
+    "translation": "Animal",
+    "description": null
+  },
+  "speciesQuantities": [
+    {
+      "createdByCurrentReport": true,
+      "totalQuantities": {
+        "outbreakQuantitiesId": 266988,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 5800,
+        "cases": 2940,
+        "deaths": 2940,
+        "killed": 2860,
+        "slaughtered": 0,
+        "vaccinated": 0
+      },
+      "newQuantities": {
+        "outbreakQuantitiesId": 266988,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 5800,
+        "cases": 2940,
+        "deaths": 2940,
+        "killed": 2860,
+        "slaughtered": 0,
+        "vaccinated": 0
+      },
+      "speciesType": {
+        "outbreakId": 198072,
+        "speciesId": 704,
+        "wildType": null,
+        "waterType": null,
+        "productionSystem": null,
+        "productionType": {
+          "original": "Poultry",
+          "translation": "Poultry "
+        }
+      }
+    }
+  ],
+  "controlMeasures": [],
+  "diagnosticMethods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "additionalMeasures": [],
+  "measuresNotImplemented": []
+}

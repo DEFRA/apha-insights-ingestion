@@ -1,0 +1,432 @@
+{
+  "event": {
+    "eventId": 7934,
+    "isForCountry": false,
+    "isAquatic": false,
+    "country": {
+      "areaId": 59,
+      "name": "Germany",
+      "isoCode": "DEU"
+    },
+    "disease": {
+      "diseaseId": 668,
+      "name": "High pathogenicity avian influenza viruses (Inf. with) (poultry)",
+      "group": "Aves",
+      "category": "Listed disease",
+      "isDomestic": true,
+      "isAquatic": false,
+      "selfDeclaration": true
+    },
+    "causalAgent": {
+      "agentId": 252,
+      "name": "Highly pathogenic avian influenza virus",
+      "type": "Virus"
+    },
+    "subType": {
+      "disease": {
+        "diseaseId": 557,
+        "name": "H5N1",
+        "group": null,
+        "category": "Listed disease",
+        "isDomestic": false,
+        "isAquatic": false,
+        "selfDeclaration": true
+      },
+      "diseaseType": null
+    },
+    "clinicalSigns": true,
+    "startedOn": "2026-10-23T00:00:00.000+00:00",
+    "confirmOn": "2026-10-24T00:00:00.000+00:00",
+    "lastOccurrence": "2026-04-23T00:00:00.000+00:00",
+    "endedOn": null,
+    "reason": {
+      "id": 280,
+      "keyValue": "reccurence disease",
+      "translation": "Recurrence of an eradicated disease",
+      "description": null
+    },
+    "eventStatus": {
+      "id": 136,
+      "keyValue": "ongoing",
+      "translation": "On-going",
+      "description": null
+    },
+    "eventComment": null,
+    "zoonoticDesc": null
+  },
+  "report": {
+    "reportId": 186781,
+    "previousReportId": null,
+    "reportNumber": 0,
+    "reportReference": "SH H5N1 (10/26) POU IN",
+    "reportedOn": "2026-10-26T13:13:52.843+00:00",
+    "reportStatus": {
+      "id": 287,
+      "keyValue": "Validated",
+      "translation": "Validated",
+      "description": null
+    },
+    "noEvolutionReport": null,
+    "creationDate": "2026-10-26T12:57:34.055+00:00"
+  },
+  "sources": [
+    {
+      "source": {
+        "sourceId": 16,
+        "name": "Unknown or inconclusive",
+        "description": null
+      },
+      "otherSource": null
+    }
+  ],
+  "measures": [
+    {
+      "measure": {
+        "measureId": 4,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Control of wildlife reservoirs",
+        "description": "Measures to reduce the potential for wildlife to transmit the disease to domestic animals and human beings (control of wildlife reservoir populations, vaccination of target wildlife etc.)."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 4,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Control of wildlife reservoirs",
+        "description": "Measures to reduce the potential for wildlife to transmit the disease to domestic animals and human beings (control of wildlife reservoir populations, vaccination of target wildlife etc.)."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 8,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Disinfection",
+        "description": "Application, after thorough cleansing, of procedures intended to destroy the infectious or parasitic agents of animal diseases, including zoonoses; this applies to premises, vehicles and different objects which may have been directly or indirectly contaminated."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 15,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Movement control",
+        "description": "Measures aimed at avoiding the spread of the disease, infection or infestation within a country/territory/zone/compartment due to the movement of animals or their products."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 16,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Official destruction of animal products",
+        "description": "Disposal of animal products under the supervision of the Competent Authority, to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 22,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Screening",
+        "description": "Survey carried out within the framework of a control programme for the disease, infection or infestation for health qualification of herds/flocks in all or part of the national territory."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 25,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Stamping out",
+        "description": "The killing of the animals which are affected and those suspected of being affected in the herd or flock and, where appropriate, those in other herds or flocks which have been exposed to infection by direct animal to animal contact, or by indirect contact with the causal pathogenic agent; animals should be killed in accordance with Chapter 7.6. The disposal of carcasses and, where relevant, animal products by rendering, burning or burial, or by any other method described in Chapter 4.12. The cleansing and disinfection of establishments through procedures defined in Chapter 4.13."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 26,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Surveillance outside the restricted zone",
+        "description": "Undertaking surveillance activities in parts of the country/territory other than those defined as the containment or protection zone for the disease, infection or infestation being notified. "
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 29,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Surveillance within the restricted zone",
+        "description": "Undertaking surveillance activities within the containment or protection zone for the disease, infection or infestation being notified. "
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 33,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Traceability",
+        "description": "Investigation of any epidemiological link of animals / animal products, in order to determine origin and spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 39,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Zoning",
+        "description": "Delineation (by regulatory means) of part of a country/territory containing an animal subpopulation with a distinct health status or risk with respect to a specific disease, infection or infestation for which required surveillance, control and biosecurity measures have been applied for the purpose of international trade."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "methods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "outbreaks": [
+    {
+      "outbreakId": 198732,
+      "oieReference": "ob_198732",
+      "nationalReference": "26-015-01935",
+      "adminDivision": "Eggebek",
+      "location": "Wanderup",
+      "locationApprox": true,
+      "epiUnitType": "Farm",
+      "clusterCount": 1,
+      "startDate": "2026-10-24T00:00:00.000+00:00",
+      "endDate": null,
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186781,
+      "lastUpdateReportId": 186781,
+      "longitude": 9.31,
+      "latitude": 54.68,
+      "description": "geese for fattening",
+      "speciesNumber": 1
+    },
+    {
+      "outbreakId": 198731,
+      "oieReference": "ob_198731",
+      "nationalReference": "26-015-01934",
+      "adminDivision": "Leezen",
+      "location": "Bark",
+      "locationApprox": true,
+      "epiUnitType": "Farm",
+      "clusterCount": 1,
+      "startDate": "2026-10-23T00:00:00.000+00:00",
+      "endDate": null,
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186781,
+      "lastUpdateReportId": 186781,
+      "longitude": 10.18,
+      "latitude": 53.9,
+      "description": "laying hens",
+      "speciesNumber": 1
+    }
+  ],
+  "strategy": "Outbreak",
+  "laboratoryTests": [
+    {
+      "ltsIdOrObdtId": 36134,
+      "testId": 196,
+      "testName": "Polymerase chain reaction (PCR)",
+      "laboratoryId": 543,
+      "laboratoryName": "Friedrich-Loeffler Institute",
+      "labRoleSelected": "national",
+      "outbreakLocation": "Wanderup",
+      "outbreaksSampled": 1,
+      "outbreakId": 198732,
+      "testFrom": null,
+      "testUntil": null,
+      "resultDate": "2026-10-26T00:00:00.000+00:00",
+      "result": "Positive",
+      "speciesIds": [704],
+      "species": ["Birds"],
+      "createdByCurrentReport": true
+    },
+    {
+      "ltsIdOrObdtId": 36133,
+      "testId": 221,
+      "testName": "Real-time polymerase chain reaction (real-time PCR)",
+      "laboratoryId": 543,
+      "laboratoryName": "Friedrich-Loeffler Institute",
+      "labRoleSelected": "national",
+      "outbreakLocation": "Bark",
+      "outbreaksSampled": 1,
+      "outbreakId": 198731,
+      "testFrom": null,
+      "testUntil": null,
+      "resultDate": "2026-10-24T00:00:00.000+00:00",
+      "result": "Positive",
+      "speciesIds": [704],
+      "species": ["Birds"],
+      "createdByCurrentReport": true
+    }
+  ],
+  "quantitativeData": {
+    "news": [
+      {
+        "outbreakQuantitiesId": 268763,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 1200,
+        "cases": 100,
+        "deaths": 100,
+        "killed": 750,
+        "slaughtered": 0,
+        "vaccinated": 0
+      }
+    ],
+    "totals": [
+      {
+        "outbreakQuantitiesId": 268763,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 1200,
+        "cases": 100,
+        "deaths": 100,
+        "killed": 750,
+        "slaughtered": 0,
+        "vaccinated": 0
+      }
+    ],
+    "unit": {
+      "id": 56,
+      "keyValue": "Animal",
+      "translation": "Animal",
+      "description": null
+    }
+  },
+  "selfDeclaration": null,
+  "user": null
+}

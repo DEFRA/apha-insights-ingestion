@@ -9,7 +9,3 @@ coverage
 .cache
 .eslintcache
 .env
-
-# WAHIS fixtures are kept local only for now
-fixtures/*
-!fixtures/README.md

@@ -1,7 +1,8 @@
 # WAHIS fixtures
 
-Real responses from the WAHIS public API (`https://wahis.woah.org/api/v1/pi`), saved for local development and tests.
-Fetched on 2026-11-09 with `language=en`. Pretty-printed with 2-space indent; otherwise unchanged.
+A filtered sample of real responses from the WAHIS public API (`https://wahis.woah.org/api/v1/pi`), saved for local development and tests.
+Fetched on 2026-11-09 with `language=en`. Only a selected subset of events, reports and outbreaks is included (see [Files](#files)); it is not the complete WAHIS dataset. Each file's content is as returned by the API, pretty-printed with 2-space indent.
+See `NOTICE.md` for the data source, modifications and WOAH disclaimer.
 
 Endpoints are documented in `wahis-openapi` (`wahis-openapi.yaml`, `workflows.md` Workflow 4).
 

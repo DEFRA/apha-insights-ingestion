@@ -1,0 +1,259 @@
+{
+  "event": {
+    "eventId": 7929,
+    "isForCountry": false,
+    "isAquatic": false,
+    "country": {
+      "areaId": 138,
+      "name": "Latvia",
+      "isoCode": "LVA"
+    },
+    "disease": {
+      "diseaseId": 671,
+      "name": "Influenza A viruses of high pathogenicity (Inf. with) (non-poultry including wild birds) (2017-)",
+      "group": "Aves",
+      "category": "Listed disease",
+      "isDomestic": false,
+      "isAquatic": false,
+      "selfDeclaration": true
+    },
+    "causalAgent": {
+      "agentId": 252,
+      "name": "Highly pathogenic avian influenza virus",
+      "type": "Virus"
+    },
+    "subType": {
+      "disease": {
+        "diseaseId": 554,
+        "name": "H5 (N untyped)",
+        "group": null,
+        "category": "Listed disease",
+        "isDomestic": false,
+        "isAquatic": false,
+        "selfDeclaration": true
+      },
+      "diseaseType": null
+    },
+    "clinicalSigns": false,
+    "startedOn": "2026-10-10T00:00:00.000+00:00",
+    "confirmOn": "2026-10-21T00:00:00.000+00:00",
+    "lastOccurrence": null,
+    "endedOn": null,
+    "reason": {
+      "id": 281,
+      "keyValue": "New strain in countr",
+      "translation": "New strain in the country/territory",
+      "description": null
+    },
+    "eventStatus": {
+      "id": 136,
+      "keyValue": "ongoing",
+      "translation": "On-going",
+      "description": null
+    },
+    "eventComment": {
+      "original": "As the samples were taken from hunted wild birds (n frame of EFSA call project for Establishing capacities for active surveillance of highly pathogenic avian influenza in wild birds in Europe) without visible clinical signs the virus load was not sufficient enough to complete the neuraminidase typing thus no further testing is possible",
+      "translation": "As the samples were taken from hunted wild birds (in the frame of EFSA call project for Establishing capacities for active surveillance of highly pathogenic avian influenza in wild birds in Europe) without visible clinical signs the virus load was not sufficient enough to complete the neuraminidase typing thus no further testing is possible"
+    },
+    "zoonoticDesc": null
+  },
+  "report": {
+    "reportId": 186905,
+    "previousReportId": 186701,
+    "reportNumber": 1,
+    "reportReference": null,
+    "reportedOn": "2026-10-30T15:16:25.105+00:00",
+    "reportStatus": {
+      "id": 287,
+      "keyValue": "Validated",
+      "translation": "Validated",
+      "description": null
+    },
+    "noEvolutionReport": null,
+    "creationDate": "2026-10-30T15:14:39.658+00:00"
+  },
+  "sources": [
+    {
+      "source": {
+        "sourceId": 16,
+        "name": "Unknown or inconclusive",
+        "description": null
+      },
+      "otherSource": null
+    }
+  ],
+  "measures": [
+    {
+      "measure": {
+        "measureId": 8,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Disinfection",
+        "description": "Application, after thorough cleansing, of procedures intended to destroy the infectious or parasitic agents of animal diseases, including zoonoses; this applies to premises, vehicles and different objects which may have been directly or indirectly contaminated."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": {
+          "original": "Terrestrial wild",
+          "translation": "Terrestrial wild"
+        },
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "methods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "outbreaks": [
+    {
+      "outbreakId": 198656,
+      "oieReference": "ob_198656",
+      "nationalReference": null,
+      "adminDivision": "Remtes pagasts",
+      "location": "Remtes pagasts",
+      "locationApprox": false,
+      "epiUnitType": "Body of water",
+      "clusterCount": 1,
+      "startDate": "2026-10-16T00:00:00.000+00:00",
+      "endDate": "2026-10-21T00:00:00.000+00:00",
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186701,
+      "lastUpdateReportId": 186701,
+      "longitude": 22.684939,
+      "latitude": 56.736292,
+      "description": "Birds tested in frame of EFSA call project for Establishing capacities for active surveillance of highly pathogenic avian influenza in wild birds in Europe.",
+      "speciesNumber": 3
+    },
+    {
+      "outbreakId": 198655,
+      "oieReference": "ob_198655",
+      "nationalReference": null,
+      "adminDivision": "Remtes pagasts",
+      "location": "Remtes pagasts",
+      "locationApprox": false,
+      "epiUnitType": "Body of water",
+      "clusterCount": 1,
+      "startDate": "2026-10-10T00:00:00.000+00:00",
+      "endDate": "2026-10-22T00:00:00.000+00:00",
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186701,
+      "lastUpdateReportId": 186701,
+      "longitude": 22.684939,
+      "latitude": 56.736292,
+      "description": "Birds tested in frame of EFSA call project for Establishing capacities for active surveillance of highly pathogenic avian influenza in wild birds in Europe.",
+      "speciesNumber": 1
+    }
+  ],
+  "strategy": "Outbreak",
+  "laboratoryTests": [
+    {
+      "ltsIdOrObdtId": 36074,
+      "testId": 231,
+      "testName": "Real-time reverse transcription polymerase chain reaction (rRT-PCR)",
+      "laboratoryId": 1639,
+      "laboratoryName": "Institute of Food Safety, Animal Health and Environment, BIOR",
+      "labRoleSelected": "national",
+      "outbreakLocation": "Remtes pagasts",
+      "outbreaksSampled": 1,
+      "outbreakId": 198656,
+      "testFrom": null,
+      "testUntil": null,
+      "resultDate": "2026-10-21T00:00:00.000+00:00",
+      "result": "Positive",
+      "speciesIds": [296, 297, 307],
+      "species": ["Northern Shoveler", "Common Teal", "Eurasian Wigeon"],
+      "createdByCurrentReport": false
+    },
+    {
+      "ltsIdOrObdtId": 36073,
+      "testId": 231,
+      "testName": "Real-time reverse transcription polymerase chain reaction (rRT-PCR)",
+      "laboratoryId": 1639,
+      "laboratoryName": "Institute of Food Safety, Animal Health and Environment, BIOR",
+      "labRoleSelected": "national",
+      "outbreakLocation": "Remtes pagasts",
+      "outbreaksSampled": 1,
+      "outbreakId": 198655,
+      "testFrom": null,
+      "testUntil": null,
+      "resultDate": "2026-10-22T00:00:00.000+00:00",
+      "result": "Positive",
+      "speciesIds": [307],
+      "species": ["Eurasian Wigeon"],
+      "createdByCurrentReport": false
+    }
+  ],
+  "quantitativeData": {
+    "news": [],
+    "totals": [
+      {
+        "outbreakQuantitiesId": 268626,
+        "speciesId": 296,
+        "speciesName": "Northern Shoveler",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 0,
+        "killed": 1,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      {
+        "outbreakQuantitiesId": 268627,
+        "speciesId": 297,
+        "speciesName": "Common Teal",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 1,
+        "deaths": 0,
+        "killed": 1,
+        "slaughtered": null,
+        "vaccinated": null
+      },
+      {
+        "outbreakQuantitiesId": 268625,
+        "speciesId": 307,
+        "speciesName": "Eurasian Wigeon",
+        "isWild": true,
+        "susceptible": null,
+        "cases": 2,
+        "deaths": 0,
+        "killed": 2,
+        "slaughtered": null,
+        "vaccinated": null
+      }
+    ],
+    "unit": {
+      "id": 56,
+      "keyValue": "Animal",
+      "translation": "Animal",
+      "description": null
+    }
+  },
+  "selfDeclaration": null,
+  "user": null
+}

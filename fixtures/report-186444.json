@@ -1,0 +1,313 @@
+{
+  "event": {
+    "eventId": 7894,
+    "isForCountry": false,
+    "isAquatic": false,
+    "country": {
+      "areaId": 180,
+      "name": "Peru",
+      "isoCode": "PER"
+    },
+    "disease": {
+      "diseaseId": 668,
+      "name": "High pathogenicity avian influenza viruses (Inf. with) (poultry)",
+      "group": "Aves",
+      "category": "Listed disease",
+      "isDomestic": true,
+      "isAquatic": false,
+      "selfDeclaration": true
+    },
+    "causalAgent": {
+      "agentId": 252,
+      "name": "Highly pathogenic avian influenza virus",
+      "type": "Virus"
+    },
+    "subType": {
+      "disease": {
+        "diseaseId": 557,
+        "name": "H5N1",
+        "group": null,
+        "category": "Listed disease",
+        "isDomestic": false,
+        "isAquatic": false,
+        "selfDeclaration": true
+      },
+      "diseaseType": null
+    },
+    "clinicalSigns": true,
+    "startedOn": "2026-10-05T00:00:00.000+00:00",
+    "confirmOn": "2026-10-07T00:00:00.000+00:00",
+    "lastOccurrence": "2026-09-03T00:00:00.000+00:00",
+    "endedOn": null,
+    "reason": {
+      "id": 280,
+      "keyValue": "reccurence disease",
+      "translation": "Recurrence of an eradicated disease",
+      "description": null
+    },
+    "eventStatus": {
+      "id": 136,
+      "keyValue": "ongoing",
+      "translation": "On-going",
+      "description": null
+    },
+    "eventComment": {
+      "original": "El Servicio Nacional de Sanidad Agraria (SENASA) como parte de las acciones de la vigilancia epidemiológica atiende las notificaciones de sospecha de enfermedades en animales, determinando un brote de influenza aviar de alta patogenicidad en aves de corral (aves de postura), que presentó signos respiratorios y nerviosos. Mediante prueba PCR en tiempo real se diagnostico el virus de influenza aviar H5N1, implementando inmediatamente las medidas de cuarentena e investigación epidemiológica. Se realizó el sacrificio sanitario de todas las aves, limpieza y desinfección de la unidad epidemiológica; además de la vigilancia perifocal para la detección de posibles casos.",
+      "translation": "The National Agricultural Health Service (SENASA) within the framework of its epidemiological surveillance responds to reports of suspected animal diseases. It has identified an outbreak of highly pathogenic avian influenza in poultry (laying hens), which exhibited respiratory and neurological signs. Real-time PCR confirmed the presence of the H5N1 avian influenza virus, prompting the immediate implementation of quarantine measures and an epidemiological investigation. All birds were culled, and the epidemiological unit was cleaned and disinfected; in addition, surveillance around the outbreak was conducted to detect possible cases."
+    },
+    "zoonoticDesc": null
+  },
+  "report": {
+    "reportId": 186444,
+    "previousReportId": null,
+    "reportNumber": 0,
+    "reportReference": null,
+    "reportedOn": "2026-10-12T17:19:59.702+00:00",
+    "reportStatus": {
+      "id": 287,
+      "keyValue": "Validated",
+      "translation": "Validated",
+      "description": null
+    },
+    "noEvolutionReport": null,
+    "creationDate": "2026-10-10T23:33:07.898+00:00"
+  },
+  "sources": [
+    {
+      "source": {
+        "sourceId": 5,
+        "name": "Contact with wild species",
+        "description": null
+      },
+      "otherSource": null
+    }
+  ],
+  "measures": [
+    {
+      "measure": {
+        "measureId": 8,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Disinfection",
+        "description": "Application, after thorough cleansing, of procedures intended to destroy the infectious or parasitic agents of animal diseases, including zoonoses; this applies to premises, vehicles and different objects which may have been directly or indirectly contaminated."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 15,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Movement control",
+        "description": "Measures aimed at avoiding the spread of the disease, infection or infestation within a country/territory/zone/compartment due to the movement of animals or their products."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 16,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Official destruction of animal products",
+        "description": "Disposal of animal products under the supervision of the Competent Authority, to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 17,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Official disposal of carcasses, by-products and waste",
+        "description": "Disposal of carcasses, by-products and waste under the supervision of the Competent Authority to prevent spread of the disease, infection or infestation."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 21,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Quarantine",
+        "description": "Infected animals and when appropriate, epidemiologically linked susceptible animals are kept isolated under the supervision of the Veterinary Authority until all sanitary measures considered necessary to control or eradicate the disease have been completed."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 25,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Stamping out",
+        "description": "The killing of the animals which are affected and those suspected of being affected in the herd or flock and, where appropriate, those in other herds or flocks which have been exposed to infection by direct animal to animal contact, or by indirect contact with the causal pathogenic agent; animals should be killed in accordance with Chapter 7.6. The disposal of carcasses and, where relevant, animal products by rendering, burning or burial, or by any other method described in Chapter 4.12. The cleansing and disinfection of establishments through procedures defined in Chapter 4.13."
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 26,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Surveillance outside the restricted zone",
+        "description": "Undertaking surveillance activities in parts of the country/territory other than those defined as the containment or protection zone for the disease, infection or infestation being notified. "
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    },
+    {
+      "measure": {
+        "measureId": 29,
+        "category": {
+          "original": "Terrestrial domestic",
+          "translation": "Terrestrial domestic"
+        },
+        "name": "Surveillance within the restricted zone",
+        "description": "Undertaking surveillance activities within the containment or protection zone for the disease, infection or infestation being notified. "
+      },
+      "status": {
+        "id": 35,
+        "keyValue": "applied",
+        "translation": "Applied",
+        "description": null
+      }
+    }
+  ],
+  "methods": [
+    {
+      "nature": {
+        "id": 68,
+        "keyValue": "Diagnostic test",
+        "translation": "Diagnostic test",
+        "description": null
+      }
+    }
+  ],
+  "outbreaks": [
+    {
+      "outbreakId": 198072,
+      "oieReference": "ob_198072",
+      "nationalReference": "002.26.00283",
+      "adminDivision": "El Tallan",
+      "location": "Centro Poblado El Tallan",
+      "locationApprox": true,
+      "epiUnitType": "Farm",
+      "clusterCount": 1,
+      "startDate": "2026-10-05T00:00:00.000+00:00",
+      "endDate": null,
+      "isFromCurrentOutbreak": null,
+      "createdByReportId": 186444,
+      "lastUpdateReportId": 186444,
+      "longitude": -80.683055,
+      "latitude": -5.406581,
+      "description": "Granja de gallinas de postura con población total de 5800 aves",
+      "speciesNumber": 1
+    }
+  ],
+  "strategy": "Event",
+  "laboratoryTests": [
+    {
+      "ltsIdOrObdtId": 47080,
+      "testId": 221,
+      "testName": "Real-time polymerase chain reaction (real-time PCR)",
+      "laboratoryId": 1042,
+      "laboratoryName": "Centro de diagnóstico de sanidad animal del SENASA",
+      "labRoleSelected": "national",
+      "outbreakLocation": null,
+      "outbreaksSampled": 1,
+      "outbreakId": null,
+      "testFrom": "2026-10-07T00:00:00.000+00:00",
+      "testUntil": "2026-10-07T00:00:00.000+00:00",
+      "resultDate": null,
+      "result": "Positive",
+      "speciesIds": [704],
+      "species": ["Birds"],
+      "createdByCurrentReport": true
+    }
+  ],
+  "quantitativeData": {
+    "news": [
+      {
+        "outbreakQuantitiesId": 266988,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 5800,
+        "cases": 2940,
+        "deaths": 2940,
+        "killed": 2860,
+        "slaughtered": 0,
+        "vaccinated": 0
+      }
+    ],
+    "totals": [
+      {
+        "outbreakQuantitiesId": 266988,
+        "speciesId": 704,
+        "speciesName": "Birds",
+        "isWild": false,
+        "susceptible": 5800,
+        "cases": 2940,
+        "deaths": 2940,
+        "killed": 2860,
+        "slaughtered": 0,
+        "vaccinated": 0
+      }
+    ],
+    "unit": {
+      "id": 56,
+      "keyValue": "Animal",
+      "translation": "Animal",
+      "description": null
+    }
+  },
+  "selfDeclaration": null,
+  "user": null
+}
