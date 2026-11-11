@@ -7,6 +7,8 @@ import { mapOutbreak } from '#/mappers/wahis-outbreak.js'
 export const RAW_PREFIX = 'raw/wahis/'
 export const TRANSFORMED_PREFIX = 'transformed/wahis-outbreak/'
 
+const VALIDATED_REPORT_STATUS = 'Validated'
+
 const OUTBREAK_KEY_PATTERN =
   /^raw\/wahis\/(\d{4}-\d{2}-\d{2})\/reports\/(\d+)\/outbreaks\/(\d+)\.json$/
 
@@ -21,8 +23,8 @@ export const transformedKey = (outbreakId) =>
 
 /**
  * Read raw WAHIS outbreaks from S3, map them to v2 records and write one
- * record per outbreak. When several reports include an outbreak, the latest
- * report wins.
+ * record per outbreak. When several validated reports include an outbreak,
+ * the latest report wins, including over a record written by an earlier run.
  * @param {object} options
  * @param {ReturnType<import('#/common/helpers/s3-client.js').createS3Store>} options.store
  * @param {object} options.logger
@@ -44,31 +46,54 @@ export async function transformWahisOutbreaks({
   const getReport = cachedLoader(store, reportKey)
   const transformedAt = now()
   const latest = new Map()
+  const skipped = []
   const failed = []
+  const recordFailure = (rawObjectKey, error, message) => {
+    logger.error({ err: error, rawObjectKey }, message)
+    failed.push({ rawObjectKey, error: error.message })
+  }
 
   for (const rawObjectKey of keys) {
     try {
-      const record = await transformOne({
+      const { record, skipReason } = await transformOne({
         store,
         rawObjectKey,
         getEventList,
         getReport,
         transformedAt
       })
+      if (skipReason) {
+        skipped.push({ rawObjectKey, reason: skipReason })
+        continue
+      }
       const outbreakId = record.source.outbreakId
-      if (isNewer(record, latest.get(outbreakId))) {
+      if (isAtLeastAsRecent(record, latest.get(outbreakId))) {
         latest.set(outbreakId, record)
       }
     } catch (error) {
-      logger.error({ err: error, rawObjectKey }, 'Failed to transform outbreak')
-      failed.push({ rawObjectKey, error: error.message })
+      recordFailure(rawObjectKey, error, 'Failed to transform outbreak')
     }
   }
 
-  const records = [...latest.values()]
-  if (!dryRun) {
-    for (const record of records) {
-      await store.putJson(transformedKey(record.source.outbreakId), record)
+  const records = []
+  for (const record of latest.values()) {
+    const { rawObjectKey, outbreakId } = record.source
+    try {
+      const outputKey = transformedKey(outbreakId)
+      const existing = await store.getJson(outputKey)
+      if (existing && !isAtLeastAsRecent(record, existing.body)) {
+        skipped.push({
+          rawObjectKey,
+          reason: `Stored record for outbreak ${outbreakId} is newer`
+        })
+        continue
+      }
+      if (!dryRun) {
+        await store.putJson(outputKey, record)
+      }
+      records.push(record)
+    } catch (error) {
+      recordFailure(rawObjectKey, error, 'Failed to write outbreak')
     }
   }
 
@@ -76,11 +101,12 @@ export async function transformWahisOutbreaks({
     {
       read: keys.length,
       written: dryRun ? 0 : records.length,
+      skipped: skipped.length,
       failed: failed.length
     },
     'WAHIS outbreak transform finished'
   )
-  return { read: keys.length, records, failed }
+  return { read: keys.length, records, skipped, failed }
 }
 
 async function selectKeys(store, { key, limit }) {
@@ -94,6 +120,10 @@ async function selectKeys(store, { key, limit }) {
   return limit ? keys.slice(0, limit) : keys
 }
 
+/**
+ * Map one raw outbreak key to a record, or to a reason for skipping it.
+ * @returns {Promise<{ record?: object, skipReason?: string }>}
+ */
 async function transformOne({
   store,
   rawObjectKey,
@@ -116,6 +146,10 @@ async function transformOne({
   if (!report) {
     throw new Error(`Raw report ${reportId} not found for ${date}`)
   }
+  const reportStatus = report.report.reportStatus?.keyValue
+  if (reportStatus !== VALIDATED_REPORT_STATUS) {
+    return { skipReason: `Report ${reportId} status is ${reportStatus}` }
+  }
   const eventList = await getEventList(date)
   const eventListEntry = eventList?.list.find(
     (entry) => entry.reportId === reportId
@@ -130,7 +164,7 @@ async function transformOne({
       ? null
       : await getReport(date, createdByReportId)
 
-  return mapOutbreak({
+  const record = mapOutbreak({
     outbreak: outbreak.body,
     report,
     eventListEntry,
@@ -140,6 +174,7 @@ async function transformOne({
     retrievedAt: `${date}T00:00:00Z`,
     transformedAt
   })
+  return { record }
 }
 
 /** Memoise JSON reads by key, returning the body or null if missing. */
@@ -159,16 +194,22 @@ function cachedLoader(store, toKey) {
 
 /**
  * Higher reportNumber wins; later lastReportedOn breaks a tie. A full tie
- * (same report fetched on a later date) goes to the later fetch.
+ * (same report fetched again) goes to the later or equal fetch, so rerunning
+ * the same input rewrites the record.
  */
-function isNewer(candidate, current) {
+function isAtLeastAsRecent(candidate, current) {
   if (!current) {
     return true
   }
-  const a = candidate.source.reportNumber
-  const b = current.source.reportNumber
-  if (a !== b) {
-    return a > b
+  const candidateReportNumber = candidate.source.reportNumber
+  const currentReportNumber = current.source.reportNumber
+  if (candidateReportNumber !== currentReportNumber) {
+    return candidateReportNumber > currentReportNumber
   }
-  return candidate.dates.lastReportedOn >= current.dates.lastReportedOn
+  const candidateReportedOn = candidate.dates.lastReportedOn ?? ''
+  const currentReportedOn = current.dates.lastReportedOn ?? ''
+  if (candidateReportedOn !== currentReportedOn) {
+    return candidateReportedOn > currentReportedOn
+  }
+  return candidate.source.retrievedAt >= current.source.retrievedAt
 }

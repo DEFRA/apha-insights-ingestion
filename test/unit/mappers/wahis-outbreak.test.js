@@ -123,4 +123,30 @@ describe('#mapOutbreak', () => {
     expect(record.dates.firstReportedOn).toBe('2026-09-30T08:00:00.000Z')
     expect(record.dates.reportingMonth).toBe('2026-09')
   })
+
+  test('Should not classify a wild mammal as a wild bird', () => {
+    const outbreak = fixture('report-186715-outbreak-198683')
+    Object.assign(outbreak.speciesQuantities[0].totalQuantities, {
+      speciesId: 1,
+      speciesName: 'Red fox'
+    })
+
+    const record = map(186715, 198683, { outbreak })
+
+    expect(record.premises.animalCategory).toBe('wild')
+    expect(record.classification).toMatchObject({
+      reportingClassification: 'unclassified',
+      confidence: 'low'
+    })
+    expect(record.processing.classificationStatus).toBe('unclassified')
+  })
+
+  test('Should not classify wild birds mixed with an unknown wild species', () => {
+    const outbreak = fixture('report-186905-outbreak-198656')
+    outbreak.speciesQuantities[1].totalQuantities.speciesId = 1
+
+    const record = map(186905, 198656, { outbreak })
+
+    expect(record.classification.reportingClassification).toBe('unclassified')
+  })
 })

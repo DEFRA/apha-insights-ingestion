@@ -4,6 +4,19 @@ const API_VERSION = 'v1/pi'
 
 const DISEASE_CODES = { 668: 'HPAI', 671: 'HPAI' }
 
+// WAHIS species ids known to be birds. The responses carry no taxonomy, and
+// isWild alone covers wild mammals too, so a wild species must be listed here
+// to count as a wild bird. Extend this as new species show up unclassified.
+export const AVIAN_SPECIES_IDS = new Set([
+  296, // Northern Shoveler
+  297, // Common Teal
+  307, // Eurasian Wigeon
+  309, // Mallard
+  382, // Lesser white-fronted goose
+  704, // Birds
+  2597 // Laridae (unidentified)
+])
+
 const FARM_NOTE =
   'WAHIS codes Farm vs Backyard but not commercial vs non-commercial.'
 
@@ -167,8 +180,9 @@ function animalCategory(species) {
 }
 
 /**
- * Classify from coded fields: wild flag, production type and epi unit.
- * Mammals can't be told apart yet (no fixture), so they fall through.
+ * Classify from coded fields: wild flag, species id, production type and epi
+ * unit. Mammals can't be told apart yet (no fixture), so they fall through,
+ * as does any wild species not known to be a bird.
  */
 export function classify(outbreak, species) {
   const epiUnitType = outbreak.epiUnitType?.translation ?? null
@@ -183,8 +197,13 @@ export function classify(outbreak, species) {
     note
   })
 
-  if (species.length > 0 && species.every(({ isWild }) => isWild)) {
-    return result('wild_birds', ['isWild=true'], 'high')
+  if (
+    species.length > 0 &&
+    species.every(
+      ({ isWild, speciesId }) => isWild && AVIAN_SPECIES_IDS.has(speciesId)
+    )
+  ) {
+    return result('wild_birds', ['isWild=true', 'speciesId=avian'], 'high')
   }
 
   if (productionTypes.size === 1 && productionTypes.has('Poultry')) {
