@@ -1,0 +1,326 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "title": "WAHIS outbreak record",
+    "description": "One record per WAHIS outbreak (unique on source.outbreakId). Holds the outbreak as described by the latest validated report that includes it. Schema version 2.0.0.",
+    "required": [
+      "_id",
+      "source",
+      "event",
+      "dates",
+      "geography",
+      "premises",
+      "quantityUnit",
+      "species",
+      "classification",
+      "raw",
+      "processing"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "_id": { "bsonType": "objectId" },
+
+      "source": {
+        "bsonType": "object",
+        "required": [
+          "system",
+          "eventId",
+          "reportId",
+          "reportNumber",
+          "reportType",
+          "reportStatus",
+          "outbreakId",
+          "createdByReportId",
+          "lastUpdateReportId",
+          "rawObjectKey",
+          "retrievedAt",
+          "apiVersion"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "system": { "enum": ["WAHIS"] },
+          "eventId": { "bsonType": ["int", "long"] },
+          "reportId": { "bsonType": ["int", "long"] },
+          "reportNumber": { "bsonType": ["int", "long"], "minimum": 0 },
+          "reportType": { "enum": ["IN", "FUR"] },
+          "reportStatus": { "enum": ["Validated"] },
+          "outbreakId": { "bsonType": ["int", "long"] },
+          "createdByReportId": { "bsonType": ["int", "long"] },
+          "lastUpdateReportId": { "bsonType": ["int", "long"] },
+          "oieReference": {
+            "bsonType": ["string", "null"],
+            "pattern": "^ob_[0-9]+$"
+          },
+          "nationalReference": { "bsonType": ["string", "null"] },
+          "rawObjectKey": { "bsonType": "string" },
+          "retrievedAt": {
+            "bsonType": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$"
+          },
+          "apiVersion": { "bsonType": "string" }
+        }
+      },
+
+      "event": {
+        "bsonType": "object",
+        "required": [
+          "disease",
+          "diseaseId",
+          "subtype",
+          "eventStatus",
+          "eventStartDate",
+          "eventEndDate"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "disease": { "bsonType": "string" },
+          "diseaseId": { "bsonType": ["int", "long"] },
+          "diseaseCode": { "bsonType": ["string", "null"] },
+          "subtype": { "bsonType": ["string", "null"] },
+          "eventStatus": { "enum": ["ongoing", "resolved", "stable"] },
+          "eventStartDate": {
+            "bsonType": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "eventEndDate": {
+            "bsonType": ["string", "null"],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "reason": { "bsonType": ["string", "null"] }
+        }
+      },
+
+      "dates": {
+        "bsonType": "object",
+        "required": [
+          "outbreakStartDate",
+          "outbreakEndDate",
+          "firstReportedOn",
+          "lastReportedOn",
+          "reportingMonth"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "outbreakStartDate": {
+            "bsonType": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "outbreakEndDate": {
+            "bsonType": ["string", "null"],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "firstReportedOn": {
+            "bsonType": ["string", "null"],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$"
+          },
+          "lastReportedOn": {
+            "bsonType": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$"
+          },
+          "reportingMonth": {
+            "bsonType": ["string", "null"],
+            "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+          }
+        }
+      },
+
+      "geography": {
+        "bsonType": "object",
+        "required": [
+          "countryName",
+          "countryIso3",
+          "countryAreaId",
+          "adminDivisions",
+          "point",
+          "isLocationApprox"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "countryName": { "bsonType": "string" },
+          "countryIso3": { "bsonType": "string", "pattern": "^[A-Z]{3}$" },
+          "countryAreaId": { "bsonType": ["int", "long"] },
+          "continent": { "bsonType": ["string", "null"] },
+          "adminDivisions": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "object",
+              "required": ["level", "name", "areaId", "parentAreaId"],
+              "additionalProperties": false,
+              "properties": {
+                "level": { "bsonType": "int", "minimum": 1, "maximum": 3 },
+                "name": { "bsonType": "string" },
+                "areaId": { "bsonType": ["int", "long"] },
+                "parentAreaId": { "bsonType": ["int", "long"] }
+              }
+            }
+          },
+          "location": { "bsonType": ["string", "null"] },
+          "point": {
+            "bsonType": "object",
+            "required": ["type", "coordinates"],
+            "additionalProperties": false,
+            "properties": {
+              "type": { "enum": ["Point"] },
+              "coordinates": {
+                "bsonType": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": [
+                  { "bsonType": "number", "minimum": -180, "maximum": 180 },
+                  { "bsonType": "number", "minimum": -90, "maximum": 90 }
+                ]
+              }
+            }
+          },
+          "isLocationApprox": { "bsonType": "bool" }
+        }
+      },
+
+      "premises": {
+        "bsonType": "object",
+        "required": [
+          "epiUnitType",
+          "epiUnitTypeId",
+          "isCluster",
+          "clusterCount",
+          "animalCategory"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "epiUnitType": { "bsonType": ["string", "null"] },
+          "epiUnitTypeId": { "bsonType": ["int", "long", "null"] },
+          "isCluster": { "bsonType": "bool" },
+          "clusterCount": { "bsonType": ["int", "null"], "minimum": 1 },
+          "animalCategory": {
+            "enum": ["domestic", "wild", "captive", "mixed", null]
+          }
+        }
+      },
+
+      "quantityUnit": { "bsonType": ["string", "null"] },
+
+      "species": {
+        "bsonType": "array",
+        "minItems": 1,
+        "items": {
+          "bsonType": "object",
+          "required": [
+            "speciesName",
+            "speciesId",
+            "isWild",
+            "wildType",
+            "productionType",
+            "totals"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "speciesName": { "bsonType": "string" },
+            "speciesId": { "bsonType": ["int", "long"] },
+            "isWild": { "bsonType": "bool" },
+            "wildType": { "bsonType": ["string", "null"] },
+            "productionType": { "bsonType": ["string", "null"] },
+            "productionSystem": { "bsonType": ["string", "null"] },
+            "totals": {
+              "bsonType": "object",
+              "required": [
+                "susceptible",
+                "cases",
+                "deaths",
+                "killed",
+                "slaughtered",
+                "vaccinated"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "susceptible": {
+                  "bsonType": ["int", "long", "null"],
+                  "minimum": 0
+                },
+                "cases": { "bsonType": ["int", "long", "null"], "minimum": 0 },
+                "deaths": { "bsonType": ["int", "long", "null"], "minimum": 0 },
+                "killed": { "bsonType": ["int", "long", "null"], "minimum": 0 },
+                "slaughtered": {
+                  "bsonType": ["int", "long", "null"],
+                  "minimum": 0
+                },
+                "vaccinated": {
+                  "bsonType": ["int", "long", "null"],
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "classification": {
+        "bsonType": "object",
+        "required": [
+          "reportingClassification",
+          "ruleVersion",
+          "basis",
+          "confidence"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "reportingClassification": {
+            "enum": [
+              "poultry_farm",
+              "poultry_backyard",
+              "poultry_unspecified",
+              "non_poultry_birds",
+              "wild_birds",
+              "mammals",
+              "unclassified"
+            ]
+          },
+          "ruleVersion": {
+            "bsonType": "string",
+            "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
+          },
+          "basis": { "bsonType": "array", "items": { "bsonType": "string" } },
+          "confidence": { "enum": ["low", "medium", "high"] },
+          "note": { "bsonType": ["string", "null"] }
+        }
+      },
+
+      "raw": {
+        "bsonType": "object",
+        "additionalProperties": true,
+        "properties": {
+          "productionType": { "bsonType": ["string", "null"] },
+          "wildType": { "bsonType": ["string", "null"] },
+          "epiUnitType": { "bsonType": ["string", "null"] },
+          "description": { "bsonType": ["string", "null"] }
+        }
+      },
+
+      "processing": {
+        "bsonType": "object",
+        "required": [
+          "schemaVersion",
+          "transformedAt",
+          "classificationStatus",
+          "validationStatus",
+          "recordStatus"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "schemaVersion": {
+            "bsonType": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+          },
+          "transformedAt": {
+            "bsonType": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$"
+          },
+          "classificationStatus": {
+            "enum": ["pending", "classified", "unclassified", "failed"]
+          },
+          "validationStatus": { "enum": ["pending", "valid", "invalid"] },
+          "recordStatus": { "enum": ["active", "deleted"] }
+        }
+      }
+    }
+  }
+}

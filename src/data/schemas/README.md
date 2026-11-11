@@ -1,0 +1,108 @@
+# WAHIS outbreak schema
+
+`wahis-outbreak.schema.json` is a MongoDB `$jsonSchema` validator for the WAHIS outbreak collection. `wahis-outbreak.example.json` is outbreak 198855 (event 7939, Netherlands) mapped from `fixtures/report-186838.json` and `fixtures/report-186838-outbreak-198855.json`. It passes the schema.
+
+## Model
+
+- **One record per outbreak.** The key is `source.outbreakId`, which stays the same across all the reports in an event. Add a unique index on it; `$jsonSchema` can't express uniqueness.
+- **The latest validated report wins.** When a newer report includes the outbreak, the transform replaces the whole record. "Newer" means a higher `reportNumber`, with a later `reportedOn` as the tie-breaker. Fields are never mixed between reports.
+- **History stays in raw S3.** Every report's version of an outbreak is kept as raw JSON. If anyone needs to see how an outbreak changed, add an `outbreak_versions` collection later.
+- **Null means "not reported".** Never turn it into `0`.
+
+See `adr/store-one-record-per-wahis-outbreak.adr.md`.
+
+## Changes from version 1 (draft of 2026-11-05)
+
+Version 1 was built from one hand-written example before the fixtures existed. Version 2 checks each field against the 14 outbreak fixtures and applies the "latest report wins" rule.
+
+### `source`
+
+| Field                | Change                                              | Why                                                                                                                                                                                                                                                             |
+| -------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reportNumber`       | Moved here from `event`, and required               | It belongs to a report, not an event. The latest-wins rule compares it, so it has to sit with `reportId`, which identifies the version the record came from.                                                                                                    |
+| `reportType`         | Added (`IN` or `FUR`)                               | Separates the initial notification (`reportNumber` 0) from follow-ups. It comes from `event-filtered-list.json`; the report detail call doesn't return it.                                                                                                      |
+| `reportStatus`       | Moved here from `event`, and limited to `Validated` | Also report-level. Limiting it to `Validated` puts the "only validated reports count" rule in the schema, so a draft can't overwrite good data.                                                                                                                 |
+| `createdByReportId`  | Added                                               | The report that first declared the outbreak (`outbreak.createdByReportId`). It replaces the `firstReportId` idea, using WAHIS's own field. You need it to find `firstReportedOn`. In 186838, outbreaks 198831 and 198832 were created by 186826, not by 186838. |
+| `lastUpdateReportId` | Added                                               | The report that last changed the outbreak. It can differ from `reportId`: outbreak 198552 appears in report 186877, but was last updated by 186720. It shows whether the latest report actually touched the outbreak.                                           |
+| `rawObjectKey`       | Added                                               | The S3 key of the raw file the record came from, so any record can be traced back to the exact source file.                                                                                                                                                     |
+| Others               | Unchanged                                           |                                                                                                                                                                                                                                                                 |
+
+### `event`
+
+| Field                          | Change                                                        | Why                                                                                                                                                                                                                                        |
+| ------------------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `diseaseId`                    | Added, required                                               | The WAHIS disease id (668 poultry, 671 non-poultry). The disease names are long and could be reworded, but the ids are what the API filters on. The outbreak-level `disease.name` is `"-"`, so the disease must come from `event.disease`. |
+| `subtype`                      | Now required (can be null)                                    | Taken from `event.subType.disease.name`. Every fixture had one, including `"H5 (N untyped)"` (186905). Requiring the key forces the mapper to set it, even when the value is null.                                                         |
+| `subtypeSource`                | Removed                                                       | It was the same text on every record. Where a field comes from belongs in the mapping documentation, not in every document.                                                                                                                |
+| `eventStatus`                  | Enum is now `ongoing`, `resolved`, `stable`; `closed` removed | Mapped from WAHIS `keyValue` (`"ongoing"`), not the display text `"On-going"`. `closed` isn't a WAHIS status; a closed event has `eventEndDate` set. Any unknown value now fails validation instead of being stored silently.              |
+| `eventEndDate`                 | Added                                                         | From `event.endedOn`. The final report closes the event by setting it. Without this field, you can't tell that an event is over.                                                                                                           |
+| `reportNumber`, `reportStatus` | Moved to `source`                                             | See above.                                                                                                                                                                                                                                 |
+
+### `dates`
+
+| Field             | Change                                            | Why                                                                                                                                                                                                                                                                               |
+| ----------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reportedOn`      | Split into `firstReportedOn` and `lastReportedOn` | Under latest-wins, a single `reportedOn` would change with every follow-up report. That would quietly move the outbreak into a different reporting month. `lastReportedOn` is `report.reportedOn` of the source report. `firstReportedOn` is `reportedOn` of `createdByReportId`. |
+| `firstReportedOn` | New, can be null                                  | It's only known once the creating report has been fetched. For 198855 it's the same report. For 198831 it needs report 186826, which isn't in the fixtures yet, so it's null there.                                                                                               |
+| `reportingMonth`  | Now based on `firstReportedOn`, and can be null   | An outbreak should be counted in the month it was first reported, and stay there. It's null until `firstReportedOn` is known.                                                                                                                                                     |
+| `outbreakEndDate` | Now required (can be null)                        | Makes the mapper set it explicitly. A null end date means the outbreak is still open.                                                                                                                                                                                             |
+
+### `geography`
+
+| Field                                 | Change                                                                               | Why                                                                                                                                                                                                                                                        |
+| ------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `countryAreaId`                       | Now required, not null                                                               | Always present (`event.country.areaId`). It's the id the API filters on.                                                                                                                                                                                   |
+| `continentSource`, `location_derived` | Removed                                                                              | Constant provenance text. See `subtypeSource`.                                                                                                                                                                                                             |
+| `adminDivisions[]`                    | Now required. `areaId` is required. `parentAreaId` added. `level` is limited to 1–3. | Fixtures have 1 to 3 levels (Puerto Rico 1, Netherlands 2, Peru 3), and every level has an `areaId` and `parentAreaId`. `parentAreaId` links the levels into a chain, and level 1's parent is the country. The array can be empty, but it must be present. |
+| `point`                               | Unchanged, but note the order                                                        | GeoJSON is `[longitude, latitude]`. WAHIS returns `latitude` and `longitude` as separate fields, so it's easy to swap them. Add a `2dsphere` index.                                                                                                        |
+| `isLocationApprox`                    | Unchanged                                                                            | The draft example had `false` for 198855, but WAHIS returns `true`. Map it from `outbreak.isLocationApprox`; don't infer it.                                                                                                                               |
+
+### `premises`
+
+| Field           | Change       | Why                                                                                                                                                                                  |
+| --------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `epiUnitTypeId` | Added        | The coded id (Farm 139). The fixtures show five values: Farm, Backyard, Forest, Body of water, Not applicable. Classification rules should match on the id, not on the English text. |
+| All fields      | Now required | `isCluster` and `clusterCount` are on every fixture outbreak. Requiring them makes a missing value a mapping error. Note that no fixture has `isCluster: true` yet.                  |
+
+### `quantityUnit` (new, top level)
+
+From `quantityUnit.translation`. It's `"Animal"` in all fixtures, but WAHIS can also count herds or other units. The unit is given once per outbreak, not per species, so it sits next to `species` and not inside it. Without it, `totals` numbers can't be interpreted reliably.
+
+### `species[]`
+
+| Field                        | Change                                       | Why                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `speciesId`                  | Now required, not null                       | Always present (`totalQuantities.speciesId`, e.g. 704 Birds). Wild-bird outbreaks name real species (Mallard, Eurasian Wigeon), so you need the id to group by species.                                                                                                                                                                                                                        |
+| `wildType`, `productionType` | Now required (can be null)                   | Taken from `speciesType`. Wild-bird fixtures have `wildType` "Wild" and no `productionType`. Poultry fixtures have the reverse.                                                                                                                                                                                                                                                                |
+| `productionType`             | Normalised                                   | WAHIS returns `"Poultry "` with a trailing space, and `"Non-poultry birds"` with a non-breaking space. Trim it and collapse the whitespace. The untouched value is kept in `raw.productionType`.                                                                                                                                                                                               |
+| `productionSystem`           | Unchanged                                    | Null in every fixture. Kept for now; drop it if it's still never filled after a wider sample.                                                                                                                                                                                                                                                                                                  |
+| `totals`                     | All six keys now required (each can be null) | Makes "not reported" (null) explicit and impossible to confuse with a missing key. Fixtures cover `killed: 0` with cases present (198731), `cases: null` with deaths present (198596), and all counts null (198597).                                                                                                                                                                           |
+| `newThisReport`              | Removed                                      | `newQuantities` only describes what one report added. It's null unless that report created or updated the outbreak; it's null for 198831, 198832, 198552, 198655 and 198656. On a latest-version record it's either misleading or empty. For "new this week" numbers, use report-level `quantitativeData.news`, or a future `outbreak_versions` collection. Never sum `totals` across reports. |
+
+### `classification`
+
+| Field                     | Change                                                                                                                               | Why                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `reportingClassification` | Now an enum: `poultry_farm`, `poultry_backyard`, `poultry_unspecified`, `non_poultry_birds`, `wild_birds`, `mammals`, `unclassified` | The draft assumed commercial versus backyard was only in the free text. The fixtures show WAHIS codes `epiUnitType` Farm or Backyard, and `productionType` Poultry or Non-poultry birds. So most outbreaks can be classified from coded fields. The enum stops typos from creating new categories. Confirm the list with the people who use the data. |
+| `ruleVersion`             | Starts at `2.0`                                                                                                                      | The rules changed, from free text to coded fields.                                                                                                                                                                                                                                                                                                    |
+| `basis`                   | Now required                                                                                                                         | Every classification has to say which fields it was based on.                                                                                                                                                                                                                                                                                         |
+| `confidence`              | Unchanged                                                                                                                            | A coded `Farm` gives `medium` rather than `high`, because WAHIS doesn't say whether a farm is commercial.                                                                                                                                                                                                                                             |
+
+### `raw`
+
+Unchanged. It holds the untouched values (such as `"Poultry "` with its trailing space) next to the cleaned-up ones, so the normalisation can be checked.
+
+### `processing`
+
+| Field           | Change               | Why                                                                                                                                                                              |
+| --------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `schemaVersion` | Added (`2.0.0`)      | Each record says which schema produced it, so older records can be found and reprocessed from raw data after a schema change.                                                    |
+| `transformedAt` | Added                | When the transform ran. It's different from `source.retrievedAt`, which is when the data was fetched from WAHIS.                                                                 |
+| `recordStatus`  | `superseded` removed | Under latest-wins, a newer version overwrites the record instead of adding a second one, so a record is never superseded. `deleted` stays, for an outbreak that WAHIS withdraws. |
+
+## Open questions
+
+- **`firstReportedOn`**: walk `previousReportId` to fetch the creating report, or accept null for carried-over outbreaks?
+- **Classification**: is the enum the right set, and should Farm count as commercial?
+- **Gaps**: still no fixture for clusters, mammals or bovines (disease 922).
+- **Validation**: Mongo rejects an invalid document outright. Does `validationStatus: "invalid"` still have a use, for business-rule checks beyond the schema?

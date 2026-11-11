@@ -1,0 +1,113 @@
+{
+  "_id": { "$oid": "6730a1f0c0ffee0000000001" },
+
+  "source": {
+    "system": "WAHIS",
+    "eventId": 7939,
+    "reportId": 186838,
+    "reportNumber": 1,
+    "reportType": "FUR",
+    "reportStatus": "Validated",
+    "outbreakId": 198855,
+    "createdByReportId": 186838,
+    "lastUpdateReportId": 186838,
+    "oieReference": "ob_198855",
+    "nationalReference": "2026-001657",
+    "rawObjectKey": "raw/endpoint=outbreak-all-information/report_id=186838/outbreak_id=198855.json",
+    "retrievedAt": "2026-11-09T12:00:00Z",
+    "apiVersion": "v1/pi"
+  },
+
+  "event": {
+    "disease": "High pathogenicity avian influenza viruses (Inf. with) (poultry)",
+    "diseaseId": 668,
+    "diseaseCode": "HPAI",
+    "subtype": "H5N1",
+    "eventStatus": "ongoing",
+    "eventStartDate": "2026-10-26",
+    "eventEndDate": null,
+    "reason": "Recurrence of an eradicated disease"
+  },
+
+  "dates": {
+    "outbreakStartDate": "2026-10-27",
+    "outbreakEndDate": null,
+    "firstReportedOn": "2026-10-28T16:48:42.168Z",
+    "lastReportedOn": "2026-10-28T16:48:42.168Z",
+    "reportingMonth": "2026-10"
+  },
+
+  "geography": {
+    "countryName": "Netherlands",
+    "countryIso3": "NLD",
+    "countryAreaId": 170,
+    "continent": "Europe",
+    "adminDivisions": [
+      { "level": 1, "name": "Groningen", "areaId": 2373, "parentAreaId": 170 },
+      {
+        "level": 2,
+        "name": "Grootegast",
+        "areaId": 31208,
+        "parentAreaId": 2373
+      }
+    ],
+    "location": "Grootegast",
+    "point": {
+      "type": "Point",
+      "coordinates": [6.2894035420703, 53.2057106567908]
+    },
+    "isLocationApprox": true
+  },
+
+  "premises": {
+    "epiUnitType": "Farm",
+    "epiUnitTypeId": 139,
+    "isCluster": false,
+    "clusterCount": 1,
+    "animalCategory": "domestic"
+  },
+
+  "quantityUnit": "Animal",
+
+  "species": [
+    {
+      "speciesName": "Birds",
+      "speciesId": 704,
+      "isWild": false,
+      "wildType": null,
+      "productionType": "Poultry",
+      "productionSystem": null,
+      "totals": {
+        "susceptible": 51605,
+        "cases": 300,
+        "deaths": 150,
+        "killed": 51455,
+        "slaughtered": null,
+        "vaccinated": null
+      }
+    }
+  ],
+
+  "classification": {
+    "reportingClassification": "poultry_farm",
+    "ruleVersion": "2.0",
+    "basis": ["productionType=Poultry", "epiUnitType=Farm"],
+    "confidence": "medium",
+    "note": "WAHIS codes Farm vs Backyard but not commercial vs non-commercial. Description says 'laying hen farm'."
+  },
+
+  "raw": {
+    "productionType": "Poultry ",
+    "wildType": null,
+    "epiUnitType": "Farm",
+    "description": "On a laying hen farm in Grootegast an outbreak of H5 is confirmed by the National reference labratory"
+  },
+
+  "processing": {
+    "schemaVersion": "2.0.0",
+    "transformedAt": "2026-11-10T12:00:00Z",
+    "classificationStatus": "classified",
+    "validationStatus": "valid",
+    "recordStatus": "active"
+  }
+}
