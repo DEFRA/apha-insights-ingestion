@@ -5,7 +5,8 @@
 ## Model
 
 - **One record per outbreak.** The key is `source.outbreakId`, which stays the same across all the reports in an event. Add a unique index on it; `$jsonSchema` can't express uniqueness.
-- **The latest validated report wins.** When a newer report includes the outbreak, the transform replaces the whole record. "Newer" means a higher `reportNumber`, with a later `reportedOn` as the tie-breaker. Fields are never mixed between reports.
+- **The latest validated report wins.** Non-validated reports are skipped. When a newer report includes the outbreak, the transform replaces the whole record. "Newer" means a higher `reportNumber`, then a later `reportedOn`, then a later fetch date (`retrievedAt`). The transform compares against the stored record as well as the current run, so reprocessing an older report can't overwrite a newer one. Fields are never mixed between reports.
+- **Wild birds need avian evidence.** `isWild` covers wild mammals too, and WAHIS gives no taxonomy, so `wild_birds` needs every species to be wild and on the transform's list of known avian species ids. Anything else is left `unclassified`.
 - **History stays in raw S3.** Every report's version of an outbreak is kept as raw JSON. If anyone needs to see how an outbreak changed, add an `outbreak_versions` collection later.
 - **Null means "not reported".** Never turn it into `0`.
 

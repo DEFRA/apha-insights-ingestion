@@ -10,7 +10,7 @@ WAHIS organises data as event → report → outbreak. Each report is a snapshot
 
 ## Decision
 
-We store one document per outbreak in the WAHIS outbreak collection, with a unique index on `source.outbreakId`. The transform upserts each outbreak from the newest validated report that includes it: the highest `reportNumber`, with a later `reportedOn` breaking ties. It replaces the whole document and never mixes fields from different reports. We keep every report's raw response in S3 as the history. We validate documents with `src/data/schemas/wahis-outbreak.schema.json` (schema version 2.0.0).
+We store one document per outbreak in the WAHIS outbreak collection, with a unique index on `source.outbreakId`. The transform upserts each outbreak from the newest validated report that includes it: the highest `reportNumber`, then a later `reportedOn`, then a later fetch date. It skips non-validated reports, and compares against the stored record before replacing it. It replaces the whole document and never mixes fields from different reports. We keep every report's raw response in S3 as the history. We validate documents with `src/data/schemas/wahis-outbreak.schema.json` (schema version 2.0.0).
 
 ## Consequences
 

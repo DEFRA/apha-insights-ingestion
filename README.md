@@ -289,8 +289,11 @@ raw/wahis/{date}/reports/{reportId}/outbreaks/{outbreakId}.json
 transformed/wahis-outbreak/outbreak_id={outbreakId}.json   <- output
 ```
 
-When several reports include an outbreak, the latest report wins. If the same
-report was fetched on more than one date, the latest fetch wins.
+Only validated reports are used; outbreaks from draft or other non-validated
+reports are skipped. When several reports include an outbreak, the latest
+report wins. If the same report was fetched on more than one date, the latest
+fetch wins. The same rule is checked against the record already in the bucket,
+so rerunning an older key never overwrites a newer record.
 
 ```bash
 export AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test
@@ -300,11 +303,27 @@ npm run transform:wahis                                   # everything
 S3_ENDPOINT_URL=http://localhost:4567 npm run transform:wahis   # standalone floci
 ```
 
-`--dry-run` prints the records and writes nothing. The script exits non-zero
-if any outbreak fails to transform.
+`--dry-run` prints the records that would be written and writes nothing. The
+script exits non-zero if any outbreak fails to transform or write.
+
+Caveats for this spike:
+
+- It is a proof of concept. The transform rules, classification and output
+  schema in `src/data/schemas/` may change without notice, and existing
+  `transformed/` records may need regenerating.
+- It only runs against local floci. Nothing is scheduled, deployed or
+  connected to MongoDB, and no service reads the transformed output yet.
+- The input is the hand-uploaded fixture sample (11 events), not the full
+  WAHIS dataset, so the output does not represent real coverage.
+- npm treats `--dry-run` as its own flag unless it follows `--`, so always
+  write `npm run transform:wahis -- --dry-run`. Without the `--`, the script
+  runs for real.
+- Floci accepts any credentials. Put them in a gitignored `.env`, never in
+  committed files.
 
 To copy the output to a real AWS bucket, download it from floci, then upload
-with your AWS credentials:
+with your AWS credentials. Do not do this for anything beyond spike review
+without agreeing the schema and data first:
 
 ```bash
 aws --endpoint-url=http://localhost:4566 s3 sync s3://apha-insights-ingestion-local/transformed/ ./transformed/
