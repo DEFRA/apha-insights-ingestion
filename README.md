@@ -196,6 +196,7 @@ aws s3 sync ./transformed/ s3://<dev-bucket>/transformed/
 ## Requirements
 
 - [Node.js](http://nodejs.org/) `>= v24` and npm `>= v11`.
+
   ```bash
   nvm use
   ```
