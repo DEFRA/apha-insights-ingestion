@@ -18,7 +18,7 @@ See also `store-one-record-per-wahis-outbreak.adr.md`, and `validate-with-mongo-
 
 We own the WAHIS outbreak schema in this repo and treat it as the contract with the backend. We version it with semantic versioning and bump the version on every change.
 
-We keep the schema as a standard JSON Schema (draft 2020-12) in `src/data/schemas/wahis-outbreak.schema.json`, describing the record as written to S3 (no `_id`). We validate each transformed record against it with `ajv` before writing it to S3. The MongoDB `$jsonSchema` version moves to the backend, which owns the collection. A record that fails goes into `failed` with the field path and the rule that broke, and we do not write it. The mapper sets `validationStatus` from the result of that check.
+We keep the schema as a standard JSON Schema (draft 2020-12) in `src/data/schemas/wahis-outbreak.schema.json`, describing the record as written to S3 (no `_id`). We validate each transformed record against it with `ajv` before writing it to S3. The MongoDB `$jsonSchema` version moves to the backend, which owns the collection. A record that fails goes into `failed` with the field path and the rule that broke, and we do not write it. The mapper sets `validationStatus` to `pending`, and the transform sets it to `valid` once the record passes that check.
 
 We use `ajv` rather than Joi for this check. Joi remains the standard for user input and data from HTTP calls. Records that ingestion writes are different, for these reasons:
 

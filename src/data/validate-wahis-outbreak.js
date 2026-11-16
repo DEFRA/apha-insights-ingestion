@@ -1,3 +1,5 @@
+// The default ajv export only supports draft-07. The 2020 entry point adds
+// draft 2020-12, which the schema declares.
 import Ajv2020 from 'ajv/dist/2020.js'
 
 import schema from './schemas/wahis-outbreak.schema.json' with { type: 'json' }
