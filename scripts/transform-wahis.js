@@ -5,7 +5,8 @@
 //   npm run transform:wahis -- --dry-run                print, don't write
 //   npm run transform:wahis                             everything
 //
-// Reads and writes S3_BUCKET at S3_ENDPOINT_URL (default: floci on 4566).
+// Reads and writes S3_BUCKET at S3_ENDPOINT_URL. The npm script finds the
+// running floci (standalone 4567 or shared 4566) via floci-endpoint.sh.
 import { parseArgs } from 'node:util'
 
 import { createLogger } from '#/common/helpers/logging/logger.js'

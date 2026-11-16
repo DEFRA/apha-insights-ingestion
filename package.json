@@ -31,7 +31,7 @@
     "start": "NODE_ENV=production node . --env-file-if-exists=.env",
     "test": "TZ=UTC vitest run --coverage",
     "test:watch": "TZ=UTC vitest",
-    "transform:wahis": "node --env-file-if-exists=.env scripts/transform-wahis.js"
+    "transform:wahis": "S3_ENDPOINT_URL=$(sh scripts/floci-endpoint.sh) node --env-file-if-exists=.env scripts/transform-wahis.js"
   },
   "imports": {
     "#/*": "./src/*"
