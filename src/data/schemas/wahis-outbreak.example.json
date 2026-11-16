@@ -1,6 +1,4 @@
 {
-  "_id": { "$oid": "6730a1f0c0ffee0000000001" },
-
   "source": {
     "system": "WAHIS",
     "eventId": 7939,

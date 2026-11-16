@@ -74,8 +74,8 @@ transform does not use MongoDB yet.
 
 - Fetch data from WAHIS automatically, on a schedule, rather than by hand.
 - Add more data sources, each with its own raw prefix and transform.
-- Load transformed records into MongoDB (the outbreak schema in
-  `src/data/schemas/` is already a MongoDB `$jsonSchema` validator) and/or
+- Load transformed records into MongoDB (the MongoDB `$jsonSchema`
+  validator for outbreaks is in `apha-risk-insights-backend`) and/or
   expose them for `apha-risk-insights-backend` to use.
 - Agree the record schema and classification rules with the people who use
   the data. See the open questions in

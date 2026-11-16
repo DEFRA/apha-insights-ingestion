@@ -151,6 +151,34 @@ describe('#transformWahisOutbreaks', () => {
     expect(logger.error).toHaveBeenCalled()
   })
 
+  test('Should mark written records as valid', async () => {
+    const store = fakeStore(rawObjects())
+
+    await transformWahisOutbreaks({ store, logger, now })
+
+    const statuses = [...store.written.values()].map(
+      (record) => record.processing.validationStatus
+    )
+    expect(statuses).toEqual(['valid', 'valid'])
+  })
+
+  test('Should not write a record that fails the schema', async () => {
+    const objects = rawObjects()
+    objects[outbreakKey(186781, 198731)].outbreak.latitude = 91
+    const store = fakeStore(objects)
+
+    const result = await transformWahisOutbreaks({ store, logger, now })
+
+    expect(result.failed).toEqual([
+      {
+        rawObjectKey: outbreakKey(186781, 198731),
+        error:
+          'Record for outbreak 198731 fails the schema: /geography/point/coordinates/1 must be <= 90'
+      }
+    ])
+    expect([...store.written.keys()]).toEqual([transformedKey(198855)])
+  })
+
   test('Should keep the record from the latest report', async () => {
     const store = fakeStore(withLaterReport(rawObjects()))
 

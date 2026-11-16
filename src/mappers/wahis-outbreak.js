@@ -136,7 +136,8 @@ export function mapOutbreak({
         classification.reportingClassification === 'unclassified'
           ? 'unclassified'
           : 'classified',
-      validationStatus: 'valid',
+      // The transform sets this once the record passes the schema
+      validationStatus: 'pending',
       recordStatus: 'active'
     }
   }
