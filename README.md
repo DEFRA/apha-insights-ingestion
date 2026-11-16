@@ -148,7 +148,8 @@ report wins. If the same report was fetched on more than one date, the latest
 fetch wins. The same rule is checked against the record already in the bucket,
 so rerunning an older key never overwrites a newer record.
 
-Before running it, start floci (see [Running locally](#running-locally)) and
+Before running it, start floci (see [Running locally](#running-locally)). The
+standalone floci seeds the fixture sample for you. Against the shared floci,
 upload the raw data under `raw/wahis/{date}/` using the layout above. Then:
 
 ```bash
@@ -156,8 +157,11 @@ export AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test
 npm run transform:wahis -- --key raw/wahis/2026-11-09/reports/186838/outbreaks/198855.json --dry-run
 npm run transform:wahis -- --limit 5
 npm run transform:wahis                                         # everything
-S3_ENDPOINT_URL=http://localhost:4567 npm run transform:wahis   # standalone floci
 ```
+
+The npm scripts find the running floci for you: this repo's standalone floci
+(`4567`) if it is up, otherwise the shared one from apha-incubator-core
+(`4566`). Set `S3_ENDPOINT_URL` to override.
 
 | Flag        | Effect                                                      |
 | ----------- | ----------------------------------------------------------- |
@@ -244,12 +248,16 @@ from this repo's Compose files:
 ```bash
 npm run docker:up        # API + MongoDB + floci on 3002 / 27018 / 4567
 npm run docker:debug     # same, with the Node inspector on 9231
-npm run docker:stop      # stop (add :v to wipe MongoDB data)
+npm run docker:stop      # stop (add :v to wipe MongoDB and floci data)
 ```
 
-The standalone floci is on port `4567` and keeps no data between restarts, so
-re-upload raw data after each restart. Point scripts at it with
-`S3_ENDPOINT_URL=http://localhost:4567`.
+The standalone floci is on port `4567`. It keeps its data in the `floci-data`
+volume across restarts, and on first start seeds the WAHIS sample from
+`fixtures/` into `raw/wahis/2026-11-09/` (see
+`compose/floci/start.d/20-seed-wahis-fixtures.sh`). To start again from just
+the sample, wipe the volumes with `npm run docker:stop:v`.
+`npm run transform:wahis` and `npm run local-s3` detect it, so no endpoint
+config is needed.
 
 Mock AWS resources are created when floci starts, by the scripts in
 `./compose/floci/start.d/`. MongoDB seed data can be added in `./compose/mongo/`.
@@ -259,9 +267,8 @@ Mock AWS resources are created when floci starts, by the scripts in
 Install [stu](https://lusingander.github.io/stu/) (`brew install stu`) and run:
 
 ```bash
-npm run local-s3                                         # shared floci from apha-incubator-core (4566)
-S3_ENDPOINT_URL=http://localhost:4567 npm run local-s3   # this repo's standalone stack
-npm run local-s3 -- --prefix raw/wahis/                  # extra args go to stu
+npm run local-s3                          # whichever floci is running (4567 standalone, else 4566)
+npm run local-s3 -- --prefix raw/wahis/   # extra args go to stu
 ```
 
 ### Ports
@@ -293,7 +300,7 @@ overrides in a gitignored `.env` file; `npm run dev`, `npm start` and
 | `MONGO_DATABASE`                              | `apha-insights-ingestion`       |                                                                                            |
 | `MONGO_RETRY_WRITES`, `MONGO_READ_PREFERENCE` | unset                           | Override the Mongo URI options.                                                            |
 | `AWS_REGION`                                  | `eu-west-2`                     |                                                                                            |
-| `S3_ENDPOINT_URL`                             | `http://localhost:4566`         | floci. Use `http://localhost:4567` for the standalone stack. Set it empty to use real AWS. |
+| `S3_ENDPOINT_URL`                             | `http://localhost:4566`         | floci. The npm scripts detect `4567` (standalone) or `4566`. Set it empty to use real AWS. |
 | `S3_BUCKET`                                   | `apha-insights-ingestion-local` |                                                                                            |
 | `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`  | none                            | Needed by the AWS SDK. Any value works for floci (e.g. `test`). Never commit them.         |
 | `LOG_ENABLED`, `LOG_LEVEL`, `LOG_FORMAT`      | on, `info`, `pino-pretty`       | `LOG_FORMAT` defaults to `ecs` in production.                                              |
@@ -306,7 +313,6 @@ A minimal local `.env` for the transform:
 AWS_ACCESS_KEY_ID=test
 AWS_SECRET_ACCESS_KEY=test
 AWS_REGION=eu-west-2
-S3_ENDPOINT_URL=http://localhost:4566
 ```
 
 ## Development

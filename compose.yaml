@@ -31,8 +31,12 @@ services:
       - 'compose/aws.env'
     environment:
       FLOCI_DEFAULT_REGION: eu-west-2
+      # Keep S3 data across restarts, in the floci-data volume
+      FLOCI_STORAGE_MODE: persistent
     volumes:
       - ./compose/floci/start.d:/etc/floci/init/start.d:ro
+      - ./fixtures:/fixtures/wahis:ro
+      - floci-data:/app/data
     networks:
       - apha-risk
 
@@ -42,7 +46,7 @@ services:
       - ./compose/mongo:/docker-entrypoint-initdb.d:ro
       - mongodb-data:/data
     healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.hello().ok"]
+      test: ['CMD', 'mongosh', '--eval', 'db.hello().ok']
       interval: 10s
       timeout: 5s
       retries: 3
@@ -52,6 +56,7 @@ services:
 
 volumes:
   mongodb-data:
+  floci-data:
 
 networks:
   apha-risk:
