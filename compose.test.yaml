@@ -24,6 +24,8 @@ services:
       - ./vitest.config.js:/home/node/vitest.config.js
       - ./coverage:/home/node/coverage
       - ./src:/home/node/src
+      - ./scripts:/home/node/scripts:ro
+      - ./compose/floci/start.d:/home/node/compose/floci/start.d:ro
       - ./package.json:/home/node/package.json
 
   mongo-test:

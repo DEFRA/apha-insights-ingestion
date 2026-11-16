@@ -8,7 +8,8 @@
 # doesn't mount them) or are already seeded (floci data persists across restarts).
 # floci runs hooks with sh and shuts down if one fails, so keep this POSIX.
 BUCKET=apha-insights-ingestion-local
-FIXTURES=/fixtures/wahis
+# FIXTURES can be overridden, for test/integration/scripts
+FIXTURES=${FIXTURES:-/fixtures/wahis}
 DATE=2026-11-09
 PREFIX="s3://$BUCKET/raw/wahis/$DATE"
 MARKER_KEY="raw/wahis/$DATE/event-filtered-list.json"

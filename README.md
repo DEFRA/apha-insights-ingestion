@@ -256,7 +256,7 @@ volume across restarts, and on first start seeds the WAHIS sample from
 `fixtures/` into `raw/wahis/2026-11-09/` (see
 `compose/floci/start.d/20-seed-wahis-fixtures.sh`). To start again from just
 the sample, wipe the volumes with `npm run docker:stop:v`.
-`npm run transform:wahis` and `npm run local-s3` detect it, so no endpoint
+`npm run transform:wahis` and `npm run s3:local` detect it, so no endpoint
 config is needed.
 
 Mock AWS resources are created when floci starts, by the scripts in
@@ -267,8 +267,8 @@ Mock AWS resources are created when floci starts, by the scripts in
 Install [stu](https://lusingander.github.io/stu/) (`brew install stu`) and run:
 
 ```bash
-npm run local-s3                          # whichever floci is running (4567 standalone, else 4566)
-npm run local-s3 -- --prefix raw/wahis/   # extra args go to stu
+npm run s3:local                          # whichever floci is running (4567 standalone, else 4566)
+npm run s3:local -- --prefix raw/wahis/   # extra args go to stu
 ```
 
 ### Ports

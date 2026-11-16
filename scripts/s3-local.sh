@@ -3,8 +3,8 @@
 # Install stu with: brew install stu
 #
 # Finds the running floci (standalone 4567 or shared 4566) via
-# floci-endpoint.sh. Override with S3_ENDPOINT_URL=... npm run local-s3
-# Extra arguments are passed to stu, e.g. npm run local-s3 -- --prefix raw/wahis/
+# floci-endpoint.sh. Override with S3_ENDPOINT_URL=... npm run s3:local
+# Extra arguments are passed to stu, e.g. npm run s3:local -- --prefix raw/wahis/
 set -e
 
 if ! command -v stu >/dev/null 2>&1; then
