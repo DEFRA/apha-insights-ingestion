@@ -1,3 +1,4 @@
+import { validateWahisOutbreak } from '#/data/validate-wahis-outbreak.js'
 import { mapOutbreak } from '#/mappers/wahis-outbreak.js'
 
 // Raw layout, one folder per fetch date:
@@ -174,6 +175,13 @@ async function transformOne({
     retrievedAt: `${date}T00:00:00Z`,
     transformedAt
   })
+  const errors = validateWahisOutbreak(record)
+  if (errors.length > 0) {
+    throw new Error(
+      `Record for outbreak ${record.source.outbreakId} fails the schema: ${errors.join('; ')}`
+    )
+  }
+  record.processing.validationStatus = 'valid'
   return { record }
 }
 

@@ -23,9 +23,7 @@ function map(reportId, outbreakId, overrides = {}) {
 
 describe('#mapOutbreak', () => {
   test('Should map outbreak 198855 to the schema example', () => {
-    const { _id, ...example } = readJson(
-      'src/data/schemas/wahis-outbreak.example.json'
-    )
+    const example = readJson('src/data/schemas/wahis-outbreak.example.json')
 
     const record = map(186838, 198855, {
       eventListEntry: { reportId: 186838, reportType: 'FUR' },
@@ -39,7 +37,9 @@ describe('#mapOutbreak', () => {
       classification: {
         ...example.classification,
         note: 'WAHIS codes Farm vs Backyard but not commercial vs non-commercial.'
-      }
+      },
+      // The transform marks it valid after checking the schema
+      processing: { ...example.processing, validationStatus: 'pending' }
     })
   })
 

@@ -1,6 +1,6 @@
 # WAHIS outbreak schema
 
-`wahis-outbreak.schema.json` is a MongoDB `$jsonSchema` validator for the WAHIS outbreak collection. `wahis-outbreak.example.json` is outbreak 198855 (event 7939, Netherlands) mapped from `fixtures/report-186838.json` and `fixtures/report-186838-outbreak-198855.json`. It passes the schema.
+`wahis-outbreak.schema.json` is a JSON Schema (draft 2020-12) for the WAHIS outbreak record the transform writes to S3. The transform checks every record against it before writing (`src/data/validate-wahis-outbreak.js`), and does not write a record that fails. The MongoDB `$jsonSchema` validator for the outbreak collection lives in `apha-risk-insights-backend`, which loads the records; it also requires the `_id` that MongoDB adds. Change both together and bump `schemaVersion`. `wahis-outbreak.example.json` is outbreak 198855 (event 7939, Netherlands) mapped from `fixtures/report-186838.json` and `fixtures/report-186838-outbreak-198855.json`. It passes the schema.
 
 ## Model
 
@@ -106,4 +106,4 @@ Unchanged. It holds the untouched values (such as `"Poultry "` with its trailing
 - **`firstReportedOn`**: walk `previousReportId` to fetch the creating report, or accept null for carried-over outbreaks?
 - **Classification**: is the enum the right set, and should Farm count as commercial?
 - **Gaps**: still no fixture for clusters, mammals or bovines (disease 922).
-- **Validation**: Mongo rejects an invalid document outright. Does `validationStatus: "invalid"` still have a use, for business-rule checks beyond the schema?
+- **Validation**: the transform never writes an invalid record, and Mongo rejects one outright. Does `validationStatus: "invalid"` still have a use, for business-rule checks beyond the schema?
