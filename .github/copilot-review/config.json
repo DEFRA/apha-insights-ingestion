@@ -1,0 +1,23 @@
+{
+  "review": {
+    "repos": ["DEFRA/apha-insights-ingestion"],
+    "lookback_days": 7,
+    "max_tasks": 3,
+    "lenses": "refactor",
+    "copilot_model": ""
+  },
+  "jira": {
+    "base_url": "",
+    "project_key": "",
+    "epic_issue_type": "Epic",
+    "task_issue_type": "Task",
+    "epic_summary": "AI code review – w/c {week}",
+    "task_summary_prefix_repo": true,
+    "labels": ["ai-review"],
+    "add_lens_repo_severity_labels": true,
+    "assignee_account_id": null,
+    "epic_extra_fields": {},
+    "task_extra_fields": {},
+    "triage_instructions": "Add label accepted to action it, or rejected and close."
+  }
+}

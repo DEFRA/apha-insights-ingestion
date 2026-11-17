@@ -1,0 +1,79 @@
+name: Copilot weekly review -> Jira
+
+# Reviews PRs merged in the last week with the GitHub Copilot CLI agent and raises
+# a Jira epic + tasks for the team to triage. Settings: .github/copilot-review/config.json
+#
+# OFF until the repo variable COPILOT_REVIEW_ENABLED is set to "true"
+# (Settings -> Secrets and variables -> Actions -> Variables).
+#
+# This repo is public, so job logs are too: the scripts mask the Jira site and project,
+# keep finding details out of the log and summary, and only upload the working files as an
+# artifact when COPILOT_REVIEW_UPLOAD_ARTIFACTS is "true".
+on:
+  schedule:
+    - cron: '0 7 * * 1' # Mondays 07:00 UTC (07:00 GMT / 08:00 BST)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: review only, don't create Jira issues"
+        type: boolean
+        default: true
+      lookback_days:
+        description: 'Override lookback days (blank = use config)'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+env:
+  LOOKBACK_DAYS: ${{ inputs.lookback_days }}
+  DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
+  WORK_DIR: ${{ github.workspace }}/copilot-review-work
+
+jobs:
+  review:
+    name: Review merged PRs and raise Jira tasks
+    if: vars.COPILOT_REVIEW_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Collect merged PRs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash .github/copilot-review/review.sh collect
+
+      - name: Set up Node
+        if: env.TOTAL_PRS != '0'
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v6
+        with:
+          node-version: '22'
+
+      - name: Copilot review
+        if: env.TOTAL_PRS != '0'
+        env:
+          # Fine-grained PAT with the "Copilot Requests" account permission. No Jira details in this step.
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+        run: |
+          npm install -g @github/copilot
+          bash .github/copilot-review/review.sh review
+
+      - name: Create Jira epic and tasks
+        if: env.TOTAL_PRS != '0'
+        env:
+          JIRA_BASE_URL: ${{ vars.JIRA_BASE_URL }}
+          JIRA_PROJECT_KEY: ${{ vars.JIRA_PROJECT_KEY }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+        run: bash .github/copilot-review/review.sh jira
+
+      - name: Upload review files (private repos only)
+        if: always() && vars.COPILOT_REVIEW_UPLOAD_ARTIFACTS == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: copilot-review-${{ github.run_id }}
+          path: ${{ env.WORK_DIR }}
+          retention-days: 7
