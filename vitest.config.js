@@ -12,7 +12,7 @@ export default defineConfig({
       reportsDirectory: './coverage',
       reporter: ['text', 'lcov'],
       include: ['src/**/*.js'],
-      exclude: [...configDefaults.exclude, 'coverage']
+      exclude: [...configDefaults.exclude, 'coverage', '.sonarlint']
     },
     setupFiles: ['test/setup.js'],
     include: [
