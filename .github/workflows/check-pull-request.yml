@@ -50,3 +50,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  journey-tests:
+    name: Run Journey Tests
+    runs-on: ubuntu-latest
+    steps:
+      # Builds this pull request and main of every other service, then runs
+      # the apha-risk-insights-e2e-tests suite against them
+      - uses: DEFRA/apha-risk-insights-e2e-tests/run-journey-tests@main
