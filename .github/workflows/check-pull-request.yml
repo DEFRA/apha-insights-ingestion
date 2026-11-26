@@ -54,6 +54,11 @@ jobs:
   journey-tests:
     name: Run Journey Tests
     runs-on: ubuntu-latest
+    # id-token lets the journey tests log in to Docker Hub through this repo's
+    # CDP build role, avoiding Docker Hub's rate limits on anonymous pulls
+    permissions:
+      contents: read
+      id-token: write
     steps:
       # Builds this pull request and main of every other service, then runs
       # the apha-risk-insights-e2e-tests suite against them
