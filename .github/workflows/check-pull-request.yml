@@ -62,4 +62,4 @@ jobs:
     steps:
       # Builds this pull request and main of every other service, then runs
       # the apha-risk-insights-e2e-tests suite against them
-      - uses: DEFRA/apha-risk-insights-e2e-tests/run-journey-tests@main
+      - uses: DEFRA/apha-risk-insights-e2e-tests/run-journey-tests@f6809616b44f431de1b8ea41b763efe5100fbdfc # main
